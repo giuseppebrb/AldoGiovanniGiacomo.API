@@ -1,8 +1,8 @@
 # AldoGiovanniGiacomo.API
 REST API we don't deserve but we need.
 
-![Api Version](https://img.shields.io/badge/API%20Version-v1-blue)
-###### Check the live version here (Swagger page): [https://aldogiovannigiacomoapi.azurewebsites.net/swagger/index.html](https://aldogiovannigiacomoapi.azurewebsites.net/swagger/index.html)
+[![Build Status](https://travis-ci.com/giuseppebrb/AldoGiovanniGiacomo.API.svg?token=pCEEhkoJAsRoSpQFU8q4&branch=master)](https://travis-ci.com/giuseppebrb/AldoGiovanniGiacomo.API) ![Api Version](https://img.shields.io/badge/API%20Version-v1-blue)
+###### Check the live version here (Swagger page): [https://aldogiovannigiacomoapi.azurewebsites.net/swagger](https://aldogiovannigiacomoapi.azurewebsites.net/swagger/index.html)
 
 [Italian Version](#italian-version-) <img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/google/146/flag-for-italy_1f1ee-1f1f9.png" width="30" height="25">
 
@@ -20,9 +20,9 @@ Packages/Technologies involved are:
 - etc...
 
 CI/CD (Continuous Integration/Continuous Delivery) are provided by Travis-CI; you can find build history [here](add link)
-The live version is hosted on Microsoft Azure @ [https://aldogiovannigiacomoapi.azurewebsites.net/swagger/index.html](https://aldogiovannigiacomoapi.azurewebsites.net/swagger/index.html).
+The live version is hosted on Microsoft Azure @ [https://aldogiovannigiacomoapi.azurewebsites.net/swagger](https://aldogiovannigiacomoapi.azurewebsites.net/swagger/index.html).
 
-If you wish, you can also download a collection of Postman calls [here]()
+If you wish, you can also download a collection of Postman calls [here](https://github.com/giuseppebrb/AldoGiovanniGiacomo.API/blob/master/AldoGiovanniGiacomoAPI.postman_collection.json)
 
 ### Setup Locally
 Setting up the project locally is pretty simple: just clone the repository and in the [Package Manager Console](https://docs.microsoft.com/en-us/nuget/consume-packages/install-use-packages-powershell#opening-the-console-and-console-controls) run `Update-Database` in order to create and seed the local database.
@@ -56,9 +56,9 @@ Altre tecnologie/pacchetti coinvolti durante la creazione sono:
 - ecc...
 
 CI/CD (Continuous Integration/Continuous Delivery) sono forniti da Travis-CI; potete trovare la *build history* [qui](add link)
-La *live version* è hostata su Microsoft Azure @ [https://aldogiovannigiacomoapi.azurewebsites.net/swagger/index.html](https://aldogiovannigiacomoapi.azurewebsites.net/swagger/index.html).
+La *live version* è hostata su Microsoft Azure @ [https://aldogiovannigiacomoapi.azurewebsites.net/swagger](https://aldogiovannigiacomoapi.azurewebsites.net/swagger/index.html).
 
-Se volete, potete scaricare anche una collezione di chiamate in Postman [qui](link)
+Se volete, potete scaricare anche una collezione di chiamate in Postman [qui](https://github.com/giuseppebrb/AldoGiovanniGiacomo.API/blob/master/AldoGiovanniGiacomoAPI.postman_collection.json)
 
 ### Setup Locale
 Settare il progetto in locale per procedere allo sviluppo è piuttosto semplice: basta clonare questo repository e nella [Package Manager Console](https://docs.microsoft.com/en-us/nuget/consume-packages/install-use-packages-powershell#opening-the-console-and-console-controls) lanciare il comando `Update-Database` per creare e popolare il database in locale.
