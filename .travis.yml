@@ -1,0 +1,11 @@
+language: node_js
+node_js:
+  - "10"
+script:
+  - echo 'Build starts!'
+  - echo 'Installing Deps!'
+  - npm install
+  - echo 'Install ended!'
+deploy:
+  provider: azure_web_apps
+  skip_cleanup: true

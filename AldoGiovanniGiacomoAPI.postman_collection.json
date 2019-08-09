@@ -1,0 +1,250 @@
+{
+	"info": {
+		"_postman_id": "feaac7bc-f21c-4889-9a22-6a80f2cec1d6",
+		"name": "AldoGiovanniGiacomoAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Actors",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44399/api/actors",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44399",
+					"path": [
+						"api",
+						"actors"
+					]
+				},
+				"description": "Returns details about Aldo, Giovanni e Giacomo"
+			},
+			"response": []
+		},
+		{
+			"name": "Actor by Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44399/api/actors/1",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44399",
+					"path": [
+						"api",
+						"actors",
+						"1"
+					]
+				},
+				"description": "GET Actor by Id"
+			},
+			"response": []
+		},
+		{
+			"name": "Actor quotes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44399/api/actors/1/quotes",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44399",
+					"path": [
+						"api",
+						"actors",
+						"1",
+						"quotes"
+					]
+				},
+				"description": "Get every quote associated to an actor"
+			},
+			"response": []
+		},
+		{
+			"name": "Random Actor Quote",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44399/api/actors/1/quotes/random",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44399",
+					"path": [
+						"api",
+						"actors",
+						"1",
+						"quotes",
+						"random"
+					]
+				},
+				"description": "Return a random quote associated to the actor"
+			},
+			"response": []
+		},
+		{
+			"name": "Quotes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44399/api/quotes",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44399",
+					"path": [
+						"api",
+						"quotes"
+					]
+				},
+				"description": "Get every quote"
+			},
+			"response": []
+		},
+		{
+			"name": "Quote by Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44399/api/quotes/1",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44399",
+					"path": [
+						"api",
+						"quotes",
+						"1"
+					]
+				},
+				"description": "Returns a quote indentified by its id"
+			},
+			"response": []
+		},
+		{
+			"name": "Random Quote",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44399/api/quotes/random",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44399",
+					"path": [
+						"api",
+						"quotes",
+						"random"
+					]
+				},
+				"description": "Return a random Quote"
+			},
+			"response": []
+		},
+		{
+			"name": "Movies",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44399/api/movies",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44399",
+					"path": [
+						"api",
+						"movies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Movie by Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44399/api/movies/1",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44399",
+					"path": [
+						"api",
+						"movies",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Movie Quotes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44399/api/movies/1/quotes",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44399",
+					"path": [
+						"api",
+						"movies",
+						"1",
+						"quotes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Random Quote from a Movie",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44399/api/movies/1/quotes/random",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44399",
+					"path": [
+						"api",
+						"movies",
+						"1",
+						"quotes",
+						"random"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

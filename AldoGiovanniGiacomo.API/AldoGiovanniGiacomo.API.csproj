@@ -1,0 +1,39 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);1591</NoWarn>
+    <UserSecretsId>c999cfd1-40a7-4bf4-a287-a6367e51309b</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20190807211225_InitialCreate.cs" />
+    <Compile Remove="Migrations\20190807211225_InitialCreate.Designer.cs" />
+    <Compile Remove="Migrations\20190807212622_InitialCreate.cs" />
+    <Compile Remove="Migrations\20190807212622_InitialCreate.Designer.cs" />
+    <Compile Remove="Migrations\20190807213158_InitialCreate.cs" />
+    <Compile Remove="Migrations\20190807213158_InitialCreate.Designer.cs" />
+    <Compile Remove="Migrations\20190807214549_InitialCreate.cs" />
+    <Compile Remove="Migrations\20190807214549_InitialCreate.Designer.cs" />
+    <Compile Remove="Migrations\20190807220353_InitialCreate.cs" />
+    <Compile Remove="Migrations\20190807220353_InitialCreate.Designer.cs" />
+    <Compile Remove="Migrations\20190807220612_InitialCreate.cs" />
+    <Compile Remove="Migrations\20190807220612_InitialCreate.Designer.cs" />
+    <Compile Remove="Migrations\20190808092646_InitialCreate.cs" />
+    <Compile Remove="Migrations\20190808092646_InitialCreate.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Api.Analyzers" Version="2.2.6" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="2.2.6" />
+    <PackageReference Include="NSwag.AspNetCore" Version="13.0.4" />
+  </ItemGroup>
+
+</Project>
