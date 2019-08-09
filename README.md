@@ -19,7 +19,7 @@ Packages/Technologies involved are:
 - [AutoMapper](https://automapper.org/)
 - etc...
 
-CI/CD (Continuous Integration/Continuous Delivery) are provided by Travis-CI; you can find build history [here](add link)
+CI/CD (Continuous Integration/Continuous Delivery) are provided by Travis-CI; you can find build history [here](https://travis-ci.com/giuseppebrb/AldoGiovanniGiacomo.API/builds)
 The live version is hosted on Microsoft Azure @ [https://aldogiovannigiacomoapi.azurewebsites.net/swagger](https://aldogiovannigiacomoapi.azurewebsites.net/swagger/index.html).
 
 If you wish, you can also download a collection of Postman calls [here](https://github.com/giuseppebrb/AldoGiovanniGiacomo.API/blob/master/AldoGiovanniGiacomoAPI.postman_collection.json)
@@ -55,7 +55,7 @@ Altre tecnologie/pacchetti coinvolti durante la creazione sono:
 - [AutoMapper](https://automapper.org/)
 - ecc...
 
-CI/CD (Continuous Integration/Continuous Delivery) sono forniti da Travis-CI; potete trovare la *build history* [qui](add link)
+CI/CD (Continuous Integration/Continuous Delivery) sono forniti da Travis-CI; potete trovare la *build history* [qui](https://travis-ci.com/giuseppebrb/AldoGiovanniGiacomo.API/builds)
 La *live version* è hostata su Microsoft Azure @ [https://aldogiovannigiacomoapi.azurewebsites.net/swagger](https://aldogiovannigiacomoapi.azurewebsites.net/swagger/index.html).
 
 Se volete, potete scaricare anche una collezione di chiamate in Postman [qui](https://github.com/giuseppebrb/AldoGiovanniGiacomo.API/blob/master/AldoGiovanniGiacomoAPI.postman_collection.json)
