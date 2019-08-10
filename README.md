@@ -16,7 +16,6 @@ This API is an **ASP.NET CORE 2.2** Web Application solution.
 Packages/Technologies involved are:
 - [Entity Framework Core](https://docs.microsoft.com/en-us/ef/core/)
 - [NSwag](https://github.com/RicoSuter/NSwag) (to generate Swagger UI and OpenAPI docs)
-- [AutoMapper](https://automapper.org/)
 - etc...
 
 CI/CD (Continuous Integration/Continuous Delivery) are provided by Travis-CI; you can find build history [here](https://travis-ci.com/giuseppebrb/AldoGiovanniGiacomo.API/builds)
@@ -34,7 +33,7 @@ This project has been created just for fun but I'd like to give it a serious fac
 Here's what I planned next:
 1. Upload a testing project for this API;
 2. Give suppurt not only for single quotes but for dialogues too.
-3. A page to allow user to submit their favourite A, G G quotes (after approvation).
+3. A page to allow user to submit their favourite Aldo, Giovanni e Giacomo quotes (after approvation).
 
 Maybe create bots/extensions for client like Slack, Skype, etc...
 
