@@ -51,7 +51,6 @@ Queste API sono create in una soluzione **ASP.NET CORE 2.2** Web Application.
 Altre tecnologie/pacchetti coinvolti durante la creazione sono:
 - [Entity Framework Core](https://docs.microsoft.com/en-us/ef/core/)
 - [NSwag](https://github.com/RicoSuter/NSwag) (per generare la documentazione OpenAPI e l'interfaccia grafica di Swagger)
-- [AutoMapper](https://automapper.org/)
 - ecc...
 
 CI/CD (Continuous Integration/Continuous Delivery) sono forniti da Travis-CI; potete trovare la *build history* [qui](https://travis-ci.com/giuseppebrb/AldoGiovanniGiacomo.API/builds)
