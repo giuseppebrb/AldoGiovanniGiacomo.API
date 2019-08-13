@@ -26,6 +26,14 @@
     <Compile Remove="Migrations\20190807220612_InitialCreate.Designer.cs" />
     <Compile Remove="Migrations\20190808092646_InitialCreate.cs" />
     <Compile Remove="Migrations\20190808092646_InitialCreate.Designer.cs" />
+    <Compile Remove="Migrations\20190812111705_Dialogues.cs" />
+    <Compile Remove="Migrations\20190812111705_Dialogues.Designer.cs" />
+    <Compile Remove="Migrations\20190812123026_Dialogue.cs" />
+    <Compile Remove="Migrations\20190812123026_Dialogue.Designer.cs" />
+    <Compile Remove="Migrations\20190813105849_DialogueCreate.cs" />
+    <Compile Remove="Migrations\20190813105849_DialogueCreate.Designer.cs" />
+    <Compile Remove="Migrations\20190813110327_DialogueCreate.cs" />
+    <Compile Remove="Migrations\20190813110327_DialogueCreate.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

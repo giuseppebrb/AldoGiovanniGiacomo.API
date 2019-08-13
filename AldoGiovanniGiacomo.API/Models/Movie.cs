@@ -24,5 +24,9 @@ namespace AldoGiovanniGiacomo.API.Models
         /// Collection of quotes of the movie
         /// </summary>
         public ICollection<Quote> Quotes { get; set; } = new List<Quote>();
+        /// <summary>
+        /// Collection of dialogues of the movie
+        /// </summary>
+        public ICollection<Dialogue> Dialogues { get; set; } = new List<Dialogue>();
     }
 }
