@@ -16,5 +16,6 @@ namespace AldoGiovanniGiacomo.API.DTOs
         public string Director { get; set; }
 
         public virtual ICollection<QuoteDTO> Quotes { get; set; } = new List<QuoteDTO>();
+        public virtual ICollection<DialogueDTO> Dialogues { get; set; } = new List<DialogueDTO>();
     }
 }

@@ -245,6 +245,114 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Dialogues",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44399/api/dialogues/",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44399",
+					"path": [
+						"api",
+						"dialogues",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Dialogue by Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44399/api/dialogues/1",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44399",
+					"path": [
+						"api",
+						"dialogues",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Random Dialogue",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44399/api/dialogues/random",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44399",
+					"path": [
+						"api",
+						"dialogues",
+						"random"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Movie Dialogues",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44399/api/movies/1/dialogues",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44399",
+					"path": [
+						"api",
+						"movies",
+						"1",
+						"dialogues"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Random Dialoguefrom a Movie",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44399/api/movies/1/dialogues/random",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44399",
+					"path": [
+						"api",
+						"movies",
+						"1",
+						"dialogues",
+						"random"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
