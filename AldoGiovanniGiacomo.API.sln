@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29201.188
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AldoGiovanniGiacomo.API", "AldoGiovanniGiacomo.API\AldoGiovanniGiacomo.API.csproj", "{D18CBFEC-66C7-4584-9D2A-042E54A9E5EB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AldoGiovanniGiacomo.API", "AldoGiovanniGiacomo.API\AldoGiovanniGiacomo.API.csproj", "{D18CBFEC-66C7-4584-9D2A-042E54A9E5EB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AldoGiovanniGiacomo.API-Test", "AldoGiovanniGiacomo.API-Test\AldoGiovanniGiacomo.API-Test.csproj", "{1538B0E3-8708-4176-9FE9-E430D92E2C28}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{D18CBFEC-66C7-4584-9D2A-042E54A9E5EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D18CBFEC-66C7-4584-9D2A-042E54A9E5EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D18CBFEC-66C7-4584-9D2A-042E54A9E5EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1538B0E3-8708-4176-9FE9-E430D92E2C28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1538B0E3-8708-4176-9FE9-E430D92E2C28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1538B0E3-8708-4176-9FE9-E430D92E2C28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1538B0E3-8708-4176-9FE9-E430D92E2C28}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
