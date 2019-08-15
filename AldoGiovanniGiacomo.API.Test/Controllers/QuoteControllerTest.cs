@@ -104,7 +104,7 @@ namespace AldoGiovanniGiacomo.API_Test.Controllers
             // Act
             var result = await controller.GetRandomQuote();
             var okResult = result as OkObjectResult;
-            var randomQuote = okResult.Value as Quote;
+            var randomQuote = okResult.Value;
 
             //Assert
             Assert.NotNull(okResult);

@@ -1,11 +1,13 @@
-language: node_js
-node_js:
-  - "10"
+language: csharp
+mono: none
+dist: trusty
+dotnet: 2.2.401
+solution: AldoGiovanniGiacomo.API.sln
+install:
+- dotnet restore
 script:
-  - echo 'Build starts!'
-  - echo 'Installing Deps!'
-  - npm install
-  - echo 'Install ended!'
+- dotnet build
+- dotnet test AldoGiovanniGiacomo.API.Test/AldoGiovanniGiacomo.API.Test.csproj
 deploy:
   provider: azure_web_apps
   skip_cleanup: true

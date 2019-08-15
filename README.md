@@ -31,7 +31,7 @@ In case something goes wrong during this task, just update the connection string
 ### What's Next?
 This project has been created just for fun but I'd like to give it a serious facade.
 Here's what I planned next:
-1. Upload a testing project for this API;
+1. Upload a testing project for this API; :white_check_mark:
 2. Give suppurt not only for single quotes but for dialogues too. :white_check_mark:
 3. A page to allow user to submit their favourite Aldo, Giovanni e Giacomo quotes (after approvation).
 
@@ -66,7 +66,7 @@ Qualora qualcosa dovesse andare storto durante questo processo, cambiare la stri
 ### In futuro?
 Questo progetto è nato per divertimento (chi non vorrebbe un generatore costante di citazioni di Aldo, Giovanni e Giacomo ?!) tuttavia vorrei che venisse sviluppato in maniera *"seria"*.
 A seguire quello che ho pianificato per il futuro:
-1. Caricamento di un progetto di test per queste API;
+1. Caricamento di un progetto di test per queste API; :white_check_mark:
 2. Supportare non solo citazioni di frasi singole ma anche di dialoghi. :white_check_mark:
 3. Creazione di una pagina per permettere agli utenti l'inserimento (previa approvazione) di altre citazioni di Aldo, Giovanni e Giacomo.
 

@@ -19,7 +19,7 @@ namespace AldoGiovanniGiacomo.API.Controllers
         private readonly AldoGiovanniGiacomoAPIContext _context;
         private readonly ILogger _logger;
 
-        public DialogueController(AldoGiovanniGiacomoAPIContext context, ILogger<MovieController> logger)
+        public DialogueController(AldoGiovanniGiacomoAPIContext context, ILogger<DialogueController> logger)
         {
             _context = context;
             _logger = logger;

@@ -192,11 +192,11 @@ namespace AldoGiovanniGiacomo.API.Controllers
 
             var random = new Random(Guid.NewGuid().GetHashCode());
             var randomIndex = random.Next(1, movieDTO.Dialogues.Count);
-            DialogueDTO randomQuoteDTO = movieDTO.Dialogues.ElementAt(randomIndex);
+            DialogueDTO randomDialogueDTO = movieDTO.Dialogues.ElementAt(randomIndex);
 
-            var randomQuote = new Quote
+            var randomQuote = new Dialogue
             {
-                Content = randomQuoteDTO.Content,
+                Content = randomDialogueDTO.Content,
                 Year = movieDTO.Year
             };
             return Ok(randomQuote);
