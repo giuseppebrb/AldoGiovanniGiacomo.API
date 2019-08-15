@@ -1,6 +1,6 @@
 language: csharp
 mono: none
-dist: trusty
+dist: bionic
 dotnet: 2.2.401
 solution: AldoGiovanniGiacomo.API.sln
 install:
