@@ -1,6 +1,6 @@
 ﻿using AldoGiovanniGiacomo.API.Contexts;
 using AldoGiovanniGiacomo.API.Controllers;
-using AldoGiovanniGiacomo.API.Models;
+using AldoGiovanniGiacomo.API.DTOs;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -37,7 +37,7 @@ namespace AldoGiovanniGiacomo.API_Test.Controllers
             // Act
             var result = await controller.GetQuotes();
             var okResult = result as OkObjectResult;
-            var quotes = okResult.Value as ICollection<Quote>;
+            var quotes = okResult.Value as ICollection<QuoteDTO>;
 
             //Assert
             Assert.NotNull(okResult);
@@ -54,7 +54,7 @@ namespace AldoGiovanniGiacomo.API_Test.Controllers
             // Act
             var result = await controller.GetQuotes();
             var okResult = result as OkObjectResult;
-            var quotes = okResult.Value as ICollection<Quote>;
+            var quotes = okResult.Value as ICollection<QuoteDTO>;
 
             //Assert
             Assert.NotNull(okResult);
@@ -71,7 +71,7 @@ namespace AldoGiovanniGiacomo.API_Test.Controllers
             // Act
             var result = await controller.GetQuote(1);
             var okResult = result as OkObjectResult;
-            var quote = okResult.Value as Quote;
+            var quote = okResult.Value as QuoteDTO;
 
             //Assert
             Assert.NotNull(okResult);
@@ -110,7 +110,7 @@ namespace AldoGiovanniGiacomo.API_Test.Controllers
             //Assert
             Assert.NotNull(okResult);
             Assert.Equal(StatusCodes.Status200OK, okResult.StatusCode);
-            Assert.IsType<Quote>(randomQuote);
+            Assert.IsType<QuoteDTO>(randomQuote);
         }
     }
 }

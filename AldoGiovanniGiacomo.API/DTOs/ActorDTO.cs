@@ -1,29 +1,41 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 
 namespace AldoGiovanniGiacomo.API.DTOs
 {
     /// <summary>
-    /// ACTOR DTO
+    /// Represents an actor
     /// </summary>
     public class ActorDTO
     {
+        /// <summary>
+        /// Id of the actor resource
+        /// </summary>
         public int Id { get; set; }
-        [Required]
-        [MaxLength(50)]
+        /// <summary>
+        /// Name of the actor
+        /// </summary>
         public string Name { get; set; }
-        [Required]
-        [MaxLength(50)]
+        /// <summary>
+        /// Surname of the actor
+        /// </summary>
         public string Surname { get; set; }
-        [MaxLength(50)]
+        /// <summary>
+        /// Nickname of the actor
+        /// </summary>
         public string Nickname { get; set; }
-        [Required]
+        /// <summary>
+        /// DOB of the actor
+        /// </summary>
         public DateTime Birth { get; set; }
-        [Required]
-        [MaxLength(50)]
+        /// <summary>
+        /// Born city of the actor
+        /// </summary>
         public string BirthPlace { get; set; }
 
-        public virtual ICollection<QuoteDTO> Quotes { get; set; } = new List<QuoteDTO>();
+        /// <summary>
+        /// Collection of quotes said by the actor
+        /// </summary>
+        public ICollection<QuoteDTO> Quotes { get; set; }
     }
 }

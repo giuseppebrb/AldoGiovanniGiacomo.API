@@ -1,41 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace AldoGiovanniGiacomo.API.Models
 {
-    /// <summary>
-    /// Represents an actor
-    /// </summary>
     public class Actor
     {
-        /// <summary>
-        /// Id of the actor resource
-        /// </summary>
         public int Id { get; set; }
-        /// <summary>
-        /// Name of the actor
-        /// </summary>
+        [Required]
+        [MaxLength(50)]
         public string Name { get; set; }
-        /// <summary>
-        /// Surname of the actor
-        /// </summary>
+        [Required]
+        [MaxLength(50)]
         public string Surname { get; set; }
-        /// <summary>
-        /// Nickname of the actor
-        /// </summary>
+        [MaxLength(50)]
         public string Nickname { get; set; }
-        /// <summary>
-        /// DOB of the actor
-        /// </summary>
+        [Required]
         public DateTime Birth { get; set; }
-        /// <summary>
-        /// Born city of the actor
-        /// </summary>
+        [Required]
+        [MaxLength(50)]
         public string BirthPlace { get; set; }
 
-        /// <summary>
-        /// Collection of quotes said by the actor
-        /// </summary>
-        public ICollection<Quote> Quotes { get; set; }
+        public virtual ICollection<Quote> Quotes { get; set; } = new List<Quote>();
     }
 }

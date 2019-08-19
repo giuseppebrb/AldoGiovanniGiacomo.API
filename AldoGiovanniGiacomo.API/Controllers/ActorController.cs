@@ -1,5 +1,5 @@
 ﻿using AldoGiovanniGiacomo.API.Contexts;
-using AldoGiovanniGiacomo.API.Models;
+using AldoGiovanniGiacomo.API.DTOs;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -29,23 +29,23 @@ namespace AldoGiovanniGiacomo.API.Controllers
         /// </summary>
         /// <returns>An array with details of every actor</returns>
         [HttpGet]
-        [ProducesResponseType(typeof(Actor), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ActorDTO), StatusCodes.Status200OK)]
         [ProducesDefaultResponseType]
         public async Task<IActionResult> GetActors()
         {
             _logger.LogInformation("Getting collection of every actor @ {DATE}", DateTime.UtcNow);
-            List<Actor> actors = new List<Actor>();
-            foreach (var actorDTO in await _context.Actors.ToListAsync())
-                actors.Add(new Actor
+            List<ActorDTO> actorsDTO = new List<ActorDTO>();
+            foreach (var actor in await _context.Actors.ToListAsync())
+                actorsDTO.Add(new ActorDTO
                 {
-                    Id = actorDTO.Id,
-                    Name = actorDTO.Name,
-                    Nickname = actorDTO.Nickname,
-                    Surname = actorDTO.Surname,
-                    Birth = actorDTO.Birth,
-                    BirthPlace = actorDTO.BirthPlace
+                    Id = actor.Id,
+                    Name = actor.Name,
+                    Nickname = actor.Nickname,
+                    Surname = actor.Surname,
+                    Birth = actor.Birth,
+                    BirthPlace = actor.BirthPlace
                 });
-            return Ok(actors);
+            return Ok(actorsDTO);
         }
 
         /// <summary>
@@ -54,31 +54,31 @@ namespace AldoGiovanniGiacomo.API.Controllers
         /// <param name="id">Actor identifier</param>
         /// <returns>Anagraphic details about the specified actor</returns>
         [HttpGet("{id}")]
-        [ProducesResponseType(typeof(Actor), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ActorDTO), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesDefaultResponseType]
         public async Task<IActionResult> GetActor(int id)
         {
             _logger.LogInformation("Getting actor with Id: {ID} @ {DATE}", id, DateTime.UtcNow);
-            var actorDTO = await _context.Actors.FindAsync(id);
+            var actor = await _context.Actors.FindAsync(id);
 
-            if (actorDTO == null)
+            if (actor == null)
             {
                 _logger.LogWarning("Not found actor with Id: {ID} @ {DATE}", id, DateTime.UtcNow);
                 return NotFound();
             }
-                
-            Actor actorVO = new Actor
+
+            ActorDTO actorDTO = new ActorDTO
             {
-                Id = actorDTO.Id,
-                Name = actorDTO.Name,
-                Nickname = actorDTO.Nickname,
-                Surname = actorDTO.Surname,
-                BirthPlace = actorDTO.BirthPlace,
-                Birth = actorDTO.Birth
+                Id = actor.Id,
+                Name = actor.Name,
+                Nickname = actor.Nickname,
+                Surname = actor.Surname,
+                BirthPlace = actor.BirthPlace,
+                Birth = actor.Birth
             };
 
-            return Ok(actorVO);
+            return Ok(actorDTO);
         }
 
         /// <summary>
@@ -87,33 +87,33 @@ namespace AldoGiovanniGiacomo.API.Controllers
         /// <param name="id">Actor identifier</param>
         /// <returns>A list of quotes associated to the specified actor</returns>
         [HttpGet("{id}/quotes")]
-        [ProducesResponseType(typeof(Quote), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(QuoteDTO), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesDefaultResponseType]
         public async Task<IActionResult> GetActorQuotes(int id)
         {
             _logger.LogInformation("Getting quotes of actor with Id: {ID} @ {DATE}", id, DateTime.UtcNow);
-            var actorDTO = await _context.Actors.FindAsync(id);
+            var actor = await _context.Actors.FindAsync(id);
 
-            if (actorDTO == null)
+            if (actor == null)
             {
                 _logger.LogWarning("Not found actor with Id: {ID} @ {DATE}", id, DateTime.UtcNow);
                 return NotFound();
             }
 
-            var quotesVO = new List<Quote>();
-            foreach (var quoteDTO in actorDTO.Quotes)
+            var quotesDTO = new List<QuoteDTO>();
+            foreach (var quote in actor.Quotes)
             {
-                quotesVO.Add(new Quote
+                quotesDTO.Add(new QuoteDTO
                 {
-                    Id = quoteDTO.Id,
-                    Content = quoteDTO.Content,
-                    Movie = quoteDTO.Movie.Title,
-                    Year = quoteDTO.Movie.Year
+                    Id = quote.Id,
+                    Content = quote.Content,
+                    Movie = quote.Movie.Title,
+                    Year = quote.Movie.Year
                 });
             }
 
-            return Ok(quotesVO);
+            return Ok(quotesDTO);
         }
 
         /// <summary>
@@ -122,33 +122,33 @@ namespace AldoGiovanniGiacomo.API.Controllers
         /// <param name="id">Actor identifier</param>
         /// <returns>A random quote</returns>
         [HttpGet("{id}/quotes/random")]
-        [ProducesResponseType(typeof(Quote), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(QuoteDTO), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesDefaultResponseType]
         public async Task<IActionResult> GetRandomQuote(int id)
         {
             _logger.LogInformation("Getting random quote of actor with Id: {ID} @ {DATE}", id, DateTime.UtcNow);
-            var actorDTO = await _context.Actors.FindAsync(id);
+            var actor = await _context.Actors.FindAsync(id);
 
-            if (actorDTO == null || actorDTO.Quotes.Count() == 0)
+            if (actor == null || actor.Quotes.Count() == 0)
             {
                 _logger.LogWarning("Not found actor with Id: {ID} @ {DATE}", id, new DateTime());
                 return NotFound();
             }
 
             Random rnd = new Random(Guid.NewGuid().GetHashCode());
-            int randomIndex = rnd.Next(actorDTO.Quotes.Count());
-            var randomQuoteDTO = actorDTO.Quotes.ToArray()[randomIndex];
+            int randomIndex = rnd.Next(actor.Quotes.Count());
+            var randomQuote = actor.Quotes.ToArray()[randomIndex];
 
-            var randomQuoteVO = new Quote
+            var randomQuoteDTO = new QuoteDTO
             {
-                Id = randomQuoteDTO.Id,
-                Content = randomQuoteDTO.Content,
-                Movie = randomQuoteDTO.Movie.Title,
-                Year = randomQuoteDTO.Movie.Year
+                Id = randomQuote.Id,
+                Content = randomQuote.Content,
+                Movie = randomQuote.Movie.Title,
+                Year = randomQuote.Movie.Year
             };
 
-            return Ok(randomQuoteVO);
+            return Ok(randomQuoteDTO);
         }
     }
 }

@@ -1,36 +1,21 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace AldoGiovanniGiacomo.API.Models
 {
-    /// <summary>
-    /// Represents an Aldo, Giovanni e Giacomo movie
-    /// </summary>
     public class Movie
     {
-        /// <summary>
-        /// Id of the Movie resource
-        /// </summary>
         public int Id { get; set; }
-        /// <summary>
-        /// Title of the movie
-        /// </summary>
+        [Required]
+        [MaxLength(50)]
         public string Title { get; set; }
-        /// <summary>
-        /// Release year of the movie
-        /// </summary>
+        [Required]
         public int Year { get; set; }
-        /// <summary>
-        /// Director of the movie
-        /// </summary>
+        [Required]
+        [MaxLength(100)]
         public string Director { get; set; }
 
-        /// <summary>
-        /// Collection of quotes of the movie
-        /// </summary>
-        public ICollection<Quote> Quotes { get; set; } = new List<Quote>();
-        /// <summary>
-        /// Collection of dialogues of the movie
-        /// </summary>
-        public ICollection<Dialogue> Dialogues { get; set; } = new List<Dialogue>();
+        public virtual ICollection<Quote> Quotes { get; set; } = new List<Quote>();
+        public virtual ICollection<Dialogue> Dialogues { get; set; } = new List<Dialogue>();
     }
 }

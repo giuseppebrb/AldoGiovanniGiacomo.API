@@ -1,6 +1,6 @@
 ﻿using AldoGiovanniGiacomo.API.Contexts;
 using AldoGiovanniGiacomo.API.Controllers;
-using AldoGiovanniGiacomo.API.Models;
+using AldoGiovanniGiacomo.API.DTOs;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -37,7 +37,7 @@ namespace AldoGiovanniGiacomo.API_Test.Controllers
             // Act
             var result = await controller.GetMovies();
             var okResult = result as OkObjectResult;
-            var movies = okResult.Value as ICollection<Movie>;
+            var movies = okResult.Value as ICollection<MovieDTO>;
 
             //Assert
             Assert.NotNull(okResult);
@@ -54,7 +54,7 @@ namespace AldoGiovanniGiacomo.API_Test.Controllers
             // Act
             var result = await controller.GetMovies();
             var okResult = result as OkObjectResult;
-            var movies = okResult.Value as ICollection<Movie>;
+            var movies = okResult.Value as ICollection<MovieDTO>;
 
             //Assert
             Assert.NotNull(okResult);
@@ -71,7 +71,7 @@ namespace AldoGiovanniGiacomo.API_Test.Controllers
             // Act
             var result = await controller.GetMovie(5);
             var okResult = result as OkObjectResult;
-            var movie = okResult.Value as Movie;
+            var movie = okResult.Value as MovieDTO;
 
             //Assert
             Assert.NotNull(okResult);
@@ -110,7 +110,7 @@ namespace AldoGiovanniGiacomo.API_Test.Controllers
             //Assert
             Assert.NotNull(okResult);
             Assert.Equal(StatusCodes.Status200OK, okResult.StatusCode);
-            Assert.IsType<Quote>(randomQuote);
+            Assert.IsType<QuoteDTO>(randomQuote);
         }
 
         [Fact]
@@ -135,7 +135,7 @@ namespace AldoGiovanniGiacomo.API_Test.Controllers
             // Act
             var result = await controller.GetMovieQuotes(5);
             var okResult = result as OkObjectResult;
-            var quotes = okResult.Value as ICollection<Quote>;
+            var quotes = okResult.Value as ICollection<QuoteDTO>;
 
             //Assert
             Assert.NotNull(okResult);
@@ -152,7 +152,7 @@ namespace AldoGiovanniGiacomo.API_Test.Controllers
             // Act
             var result = await controller.GetMovieDialogues(5);
             var okResult = result as OkObjectResult;
-            var dialogues = okResult.Value as ICollection<Dialogue>;
+            var dialogues = okResult.Value as ICollection<DialogueDTO>;
 
             //Assert
             Assert.NotNull(okResult);
@@ -174,7 +174,7 @@ namespace AldoGiovanniGiacomo.API_Test.Controllers
             //Assert
             Assert.NotNull(okResult);
             Assert.Equal(StatusCodes.Status200OK, okResult.StatusCode);
-            Assert.IsType<Dialogue>(dialogue);
+            Assert.IsType<DialogueDTO>(dialogue);
         }
     }
 }

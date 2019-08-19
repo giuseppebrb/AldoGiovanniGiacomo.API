@@ -31,30 +31,30 @@ namespace AldoGiovanniGiacomo.API.Controllers
         /// </summary>
         /// <returns>A list containg details about every movie</returns>
         [HttpGet]
-        [ProducesResponseType(typeof(Movie), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(MovieDTO), StatusCodes.Status200OK)]
         [ProducesDefaultResponseType]
         public async Task<IActionResult> GetMovies()
         {
             _logger.LogInformation("Getting collection of every movie @ {DATE}", DateTime.UtcNow);
-            List<Movie> movies = new List<Movie>();
+            List<MovieDTO> moviesDTO = new List<MovieDTO>();
 
-            foreach (var movieDTO in await _context.Movies.ToListAsync())
+            foreach (var movie in await _context.Movies.ToListAsync())
             {
-                ICollection<Quote> movieQuotes = MapMovieQuotes(movieDTO);
-                ICollection<Dialogue> movieDialogues = MapMovieDialogues(movieDTO);
+                ICollection<QuoteDTO> movieQuotes = MapMovieQuotes(movie);
+                ICollection<DialogueDTO> movieDialogues = MapMovieDialogues(movie);
 
-                movies.Add(new Movie
+                moviesDTO.Add(new MovieDTO
                 {
-                    Id = movieDTO.Id,
-                    Year = movieDTO.Year,
-                    Title = movieDTO.Title,
+                    Id = movie.Id,
+                    Year = movie.Year,
+                    Title = movie.Title,
                     Quotes = movieQuotes,
                     Dialogues = movieDialogues,
-                    Director = movieDTO.Director
+                    Director = movie.Director
                 });
             }
 
-            return Ok(movies);
+            return Ok(moviesDTO);
         }
 
         /// <summary>
@@ -63,31 +63,31 @@ namespace AldoGiovanniGiacomo.API.Controllers
         /// <param name="id">Movie identifier</param>
         /// <returns>Details of the movie</returns>
         [HttpGet("{id}")]
-        [ProducesResponseType(typeof(Movie), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(MovieDTO), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesDefaultResponseType]
         public async Task<IActionResult> GetMovie(int id)
         {
             _logger.LogInformation("Getting movie with Id: {ID} @ {DATE}", id, DateTime.UtcNow);
-            var movieDTO = await _context.Movies.FindAsync(id);
+            var movie = await _context.Movies.FindAsync(id);
 
-            if (movieDTO == null)
+            if (movie == null)
             {
                 _logger.LogWarning("Not found movie with Id: {ID} @ {DATE}", id, DateTime.UtcNow);
                 return NotFound();
             }
 
-            ICollection<Quote> movieQuotes = MapMovieQuotes(movieDTO);
-            var movieVO = new Movie
+            ICollection<QuoteDTO> movieQuotes = MapMovieQuotes(movie);
+            var movieDTO = new MovieDTO
             {
-                Id = movieDTO.Id,
-                Year = movieDTO.Year,
-                Title = movieDTO.Title,
+                Id = movie.Id,
+                Year = movie.Year,
+                Title = movie.Title,
                 Quotes = movieQuotes,
-                Director = movieDTO.Director
+                Director = movie.Director
             };
 
-            return Ok(movieVO);
+            return Ok(movieDTO);
         }
 
         /// <summary>
@@ -96,23 +96,23 @@ namespace AldoGiovanniGiacomo.API.Controllers
         /// <param name="id">Movie identifier</param>
         /// <returns>A list of quotes from the movie</returns>
         [HttpGet("{id}/quotes")]
-        [ProducesResponseType(typeof(Quote), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(QuoteDTO), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesDefaultResponseType]
         public async Task<IActionResult> GetMovieQuotes(int id)
         {
             _logger.LogInformation("Getting quotes from movie with Id: {ID} @ {DATE}", id, DateTime.UtcNow);
 
-            var movieDTO = await _context.Movies.FindAsync(id);
+            var movie = await _context.Movies.FindAsync(id);
 
-            if (movieDTO == null)
+            if (movie == null)
             {
                 _logger.LogWarning("Not found movie with Id: {ID} @ {DATE}", id, DateTime.UtcNow);
                 return NotFound();
             }
 
-            ICollection<Quote> movieQuotes = MapMovieQuotes(movieDTO);
-            return Ok(movieQuotes);
+            ICollection<QuoteDTO> movieQuotesDTO = MapMovieQuotes(movie);
+            return Ok(movieQuotesDTO);
         }
 
         /// <summary>
@@ -121,32 +121,32 @@ namespace AldoGiovanniGiacomo.API.Controllers
         /// <param name="id">Movie identifier</param>
         /// <returns>A random quote from the movie</returns>
         [HttpGet("{id}/quotes/random")]
-        [ProducesResponseType(typeof(Quote), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(QuoteDTO), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesDefaultResponseType]
         public async Task<IActionResult> GetMovieRandomQuote(int id)
         {
             _logger.LogInformation("Getting random quote from movie with Id: {ID} @ {DATE}", id, DateTime.UtcNow);
 
-            var movieDTO = await _context.Movies.FindAsync(id);
-            if (movieDTO == null)
+            var movie = await _context.Movies.FindAsync(id);
+            if (movie == null)
             {
                 _logger.LogWarning("Not found movie with Id: {ID} @ {DATE}", id, DateTime.UtcNow);
                 return NotFound();
             }
 
             var random = new Random(Guid.NewGuid().GetHashCode());
-            var randomIndex = random.Next(1, movieDTO.Quotes.Count);
-            QuoteDTO randomQuoteDTO = movieDTO.Quotes.ElementAt(randomIndex);
+            var randomIndex = random.Next(1, movie.Quotes.Count);
+            Quote randomQuote = movie.Quotes.ElementAt(randomIndex);
 
-            var randomQuote = new Quote
+            var randomQuoteDTO = new QuoteDTO
             {
-                Id = randomQuoteDTO.Id,
-                Actor = randomQuoteDTO.Actor.Name + ' ' + randomQuoteDTO.Actor.Surname,
-                Content = randomQuoteDTO.Content,
-                Year = movieDTO.Year
+                Id = randomQuote.Id,
+                Actor = randomQuote.Actor.Name + ' ' + randomQuote.Actor.Surname,
+                Content = randomQuote.Content,
+                Year = movie.Year
             };
-            return Ok(randomQuote);
+            return Ok(randomQuoteDTO);
         }
 
         /// <summary>
@@ -155,22 +155,22 @@ namespace AldoGiovanniGiacomo.API.Controllers
         /// <param name="id">Movie identifier</param>
         /// <returns>A list of dialogues from the movie</returns>
         [HttpGet("{id}/dialogues")]
-        [ProducesResponseType(typeof(Dialogue), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(DialogueDTO), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesDefaultResponseType]
         public async Task<IActionResult> GetMovieDialogues(int id)
         {
             _logger.LogInformation("Getting dialogues from movie with Id: {ID} @ {DATE}", id, DateTime.UtcNow);
-            var movieDTO = await _context.Movies.FindAsync(id);
+            var movie = await _context.Movies.FindAsync(id);
 
-            if (movieDTO == null)
+            if (movie == null)
             {
                 _logger.LogWarning("Not found movie with Id: {ID} @ {DATE}", id, DateTime.UtcNow);
                 return NotFound();
             }
 
-            ICollection<Dialogue> movieDialogues = MapMovieDialogues(movieDTO);
-            return Ok(movieDialogues);
+            ICollection<DialogueDTO> movieDialoguesDTO = MapMovieDialogues(movie);
+            return Ok(movieDialoguesDTO);
         }
 
         /// <summary>
@@ -179,55 +179,55 @@ namespace AldoGiovanniGiacomo.API.Controllers
         /// <param name="id">Movie identifier</param>
         /// <returns>A random dialogue from the movie</returns>
         [HttpGet("{id}/dialogues/random")]
-        [ProducesResponseType(typeof(Dialogue), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(DialogueDTO), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesDefaultResponseType]
         public async Task<IActionResult> GetMovieRandomDialogue(int id)
         {
             _logger.LogInformation("Getting random dialogue from movie with Id: {ID} @ {DATE}", id, DateTime.UtcNow);
 
-            var movieDTO = await _context.Movies.FindAsync(id);
-            if (movieDTO == null)
+            var movie = await _context.Movies.FindAsync(id);
+            if (movie == null)
             {
                 _logger.LogWarning("Not found movie with Id: {ID} @ {DATE}", id, DateTime.UtcNow);
                 return NotFound();
             }
 
             var random = new Random(Guid.NewGuid().GetHashCode());
-            var randomIndex = random.Next(1, movieDTO.Dialogues.Count);
-            DialogueDTO randomDialogueDTO = movieDTO.Dialogues.ElementAt(randomIndex);
+            var randomIndex = random.Next(1, movie.Dialogues.Count);
+            Dialogue randomDialogue = movie.Dialogues.ElementAt(randomIndex);
 
-            var randomQuote = new Dialogue
+            var randomDialogueDTO = new DialogueDTO
             {
-                Id = randomDialogueDTO.Id,
-                Content = randomDialogueDTO.Content,
-                Year = movieDTO.Year
+                Id = randomDialogue.Id,
+                Content = randomDialogue.Content,
+                Year = movie.Year
             };
-            return Ok(randomQuote);
+            return Ok(randomDialogueDTO);
         }
 
-        private ICollection<Quote> MapMovieQuotes(MovieDTO movieDTO)
+        private ICollection<QuoteDTO> MapMovieQuotes(Movie movieDTO)
         {
-            List<Quote> movieQuotes = new List<Quote>();
-            foreach (var quoteDTO in movieDTO.Quotes)
+            List<QuoteDTO> movieQuotesDTO = new List<QuoteDTO>();
+            foreach (var quote in movieDTO.Quotes)
             {
-                movieQuotes.Add(new Quote
+                movieQuotesDTO.Add(new DTOs.QuoteDTO
                 {
-                    Id = quoteDTO.Id,
-                    Actor = quoteDTO.Actor.Name + ' ' + quoteDTO.Actor.Surname,
-                    Content = quoteDTO.Content,
+                    Id = quote.Id,
+                    Actor = quote.Actor.Name + ' ' + quote.Actor.Surname,
+                    Content = quote.Content,
                     Year = movieDTO.Year
                 });
             }
-            return movieQuotes;
+            return movieQuotesDTO;
         }
 
-        private ICollection<Dialogue> MapMovieDialogues(MovieDTO movieDTO)
+        private ICollection<DialogueDTO> MapMovieDialogues(Movie movieDTO)
         {
-            List<Dialogue> movieDialogues = new List<Dialogue>();
+            List<DTOs.DialogueDTO> movieDialogues = new List<DialogueDTO>();
             foreach (var dialogueDTO in movieDTO.Dialogues)
             {
-                movieDialogues.Add(new Dialogue
+                movieDialogues.Add(new DTOs.DialogueDTO
                 {
                     Id = dialogueDTO.Id,
                     Content = dialogueDTO.Content,

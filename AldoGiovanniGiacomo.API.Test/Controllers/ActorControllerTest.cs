@@ -1,6 +1,6 @@
 using AldoGiovanniGiacomo.API.Contexts;
 using AldoGiovanniGiacomo.API.Controllers;
-using AldoGiovanniGiacomo.API.Models;
+using AldoGiovanniGiacomo.API.DTOs;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -38,7 +38,7 @@ namespace AldoGiovanniGiacomo.API_Test.Controllers
             // Act
             var result = await controller.GetActors();
             var okResult = result as OkObjectResult;
-            var actors = okResult.Value as ICollection<Actor>;
+            var actors = okResult.Value as ICollection<ActorDTO>;
 
             //Assert
             Assert.NotNull(okResult);
@@ -55,7 +55,7 @@ namespace AldoGiovanniGiacomo.API_Test.Controllers
             // Act
             var result = await controller.GetActors();
             var okResult = result as OkObjectResult;
-            var actors = okResult.Value as ICollection<Actor>;
+            var actors = okResult.Value as ICollection<ActorDTO>;
 
             //Assert
             Assert.NotNull(okResult);
@@ -72,7 +72,7 @@ namespace AldoGiovanniGiacomo.API_Test.Controllers
             // Act
             var result = await controller.GetActor(1);
             var okResult = result as OkObjectResult;
-            var actor = okResult.Value as Actor;
+            var actor = okResult.Value as ActorDTO;
 
             //Assert
             Assert.NotNull(okResult);
@@ -106,7 +106,7 @@ namespace AldoGiovanniGiacomo.API_Test.Controllers
             // Act
             var result = await controller.GetActorQuotes(1);
             var okResult = result as OkObjectResult;
-            var quotes = okResult.Value as ICollection<Quote>;
+            var quotes = okResult.Value as ICollection<QuoteDTO>;
 
             //Assert
             Assert.Equal(2, quotes.Count);
@@ -139,7 +139,7 @@ namespace AldoGiovanniGiacomo.API_Test.Controllers
             //Assert
             Assert.NotNull(okResult);
             Assert.Equal(StatusCodes.Status200OK, okResult.StatusCode);
-            Assert.IsType<Quote>(randomQuote);
+            Assert.IsType<QuoteDTO>(randomQuote);
         }
 
         [Fact]

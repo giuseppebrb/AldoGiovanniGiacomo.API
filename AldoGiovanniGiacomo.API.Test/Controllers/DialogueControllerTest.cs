@@ -1,6 +1,6 @@
 ﻿using AldoGiovanniGiacomo.API.Contexts;
 using AldoGiovanniGiacomo.API.Controllers;
-using AldoGiovanniGiacomo.API.Models;
+using AldoGiovanniGiacomo.API.DTOs;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -37,7 +37,7 @@ namespace AldoGiovanniGiacomo.API_Test.Controllers
             // Act
             var result = await controller.GetDialogues();
             var okResult = result as OkObjectResult;
-            var dialogues = okResult.Value as ICollection<Dialogue>;
+            var dialogues = okResult.Value as ICollection<DialogueDTO>;
 
             //Assert
             Assert.NotNull(okResult);
@@ -54,7 +54,7 @@ namespace AldoGiovanniGiacomo.API_Test.Controllers
             // Act
             var result = await controller.GetDialogues();
             var okResult = result as OkObjectResult;
-            var dialogues = okResult.Value as ICollection<Dialogue>;
+            var dialogues = okResult.Value as ICollection<DialogueDTO>;
 
             //Assert
             Assert.NotNull(okResult);
@@ -71,7 +71,7 @@ namespace AldoGiovanniGiacomo.API_Test.Controllers
             // Act
             var result = await controller.GetDialogue(1);
             var okResult = result as OkObjectResult;
-            var dialogue = okResult.Value as Dialogue;
+            var dialogue = okResult.Value as DialogueDTO;
 
             //Assert
             Assert.NotNull(okResult);
@@ -109,7 +109,7 @@ namespace AldoGiovanniGiacomo.API_Test.Controllers
             //Assert
             Assert.NotNull(okResult);
             Assert.Equal(StatusCodes.Status200OK, okResult.StatusCode);
-            Assert.IsType<Dialogue>(randomDialogue);
+            Assert.IsType<DialogueDTO>(randomDialogue);
         }
     }
 }

@@ -1,5 +1,5 @@
 ﻿using AldoGiovanniGiacomo.API.Contexts;
-using AldoGiovanniGiacomo.API.Models;
+using AldoGiovanniGiacomo.API.DTOs;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -30,24 +30,24 @@ namespace AldoGiovanniGiacomo.API.Controllers
         /// </summary>
         /// <returns>A list of dialogues</returns>
         [HttpGet]
-        [ProducesResponseType(typeof(Dialogue), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(DialogueDTO), StatusCodes.Status200OK)]
         [ProducesDefaultResponseType]
         public async Task<IActionResult> GetDialogues()
         {
             _logger.LogInformation("Getting collection of every dialogue @ {DATE}", DateTime.UtcNow);
-            ICollection<Dialogue> dialogues = new List<Dialogue>();
+            ICollection<DialogueDTO> dialoguesDTO = new List<DialogueDTO>();
 
-            foreach (var dialogueDTO in await _context.Dialogues.ToListAsync())
+            foreach (var dialogue in await _context.Dialogues.ToListAsync())
             {
-                dialogues.Add(new Dialogue
+                dialoguesDTO.Add(new DialogueDTO
                 {
-                    Id = dialogueDTO.Id,
-                    Content = dialogueDTO.Content,
-                    Movie = dialogueDTO.Movie.Title,
-                    Year = dialogueDTO.Movie.Year
+                    Id = dialogue.Id,
+                    Content = dialogue.Content,
+                    Movie = dialogue.Movie.Title,
+                    Year = dialogue.Movie.Year
                 });
             }
-            return Ok(dialogues);
+            return Ok(dialoguesDTO);
         }
 
         /// <summary>
@@ -56,30 +56,30 @@ namespace AldoGiovanniGiacomo.API.Controllers
         /// <param name="id">Dialogue identifier</param>
         /// <returns>The selected dialogue</returns>
         [HttpGet("{id}")]
-        [ProducesResponseType(typeof(Dialogue), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(DialogueDTO), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesDefaultResponseType]
         public async Task<IActionResult> GetDialogue(int id)
         {
             _logger.LogInformation("Getting dialogue with Id: {ID} @ {DATE}", id, DateTime.UtcNow);
 
-            var dialogueDTO = await _context.Dialogues.FindAsync(id);
+            var dialogue = await _context.Dialogues.FindAsync(id);
 
-            if (dialogueDTO == null)
+            if (dialogue == null)
             {
                 _logger.LogWarning("Not found dialogue with Id: {ID} @ {DATE}", id, DateTime.UtcNow);
                 return NotFound();
             }
 
-            var dialogueVO = new Dialogue
+            var dialogueDTO = new DialogueDTO
             {
-                Id = dialogueDTO.Id,
-                Content = dialogueDTO.Content,
-                Movie = dialogueDTO.Movie.Title,
-                Year = dialogueDTO.Movie.Year
+                Id = dialogue.Id,
+                Content = dialogue.Content,
+                Movie = dialogue.Movie.Title,
+                Year = dialogue.Movie.Year
             };
 
-            return Ok(dialogueVO);
+            return Ok(dialogueDTO);
         }
 
         /// <summary>
@@ -87,24 +87,24 @@ namespace AldoGiovanniGiacomo.API.Controllers
         /// </summary>
         /// <returns>A random dialogue</returns>
         [HttpGet("random")]
-        [ProducesResponseType(typeof(Dialogue), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(DialogueDTO), StatusCodes.Status200OK)]
         [ProducesDefaultResponseType]
         public async Task<IActionResult> GetRandomDialogue()
         {
             _logger.LogInformation("Getting a random dialogue @ {DATE}", DateTime.UtcNow);
             var _random = new Random(Guid.NewGuid().GetHashCode());
             int randomIndex = _random.Next(1, _context.Dialogues.Count());
-            var randomDialogueDTO = await _context.Dialogues.FindAsync(randomIndex);
+            var randomDialogue = await _context.Dialogues.FindAsync(randomIndex);
 
-            var randomDialogueVO = new Dialogue
+            var randomDialogueDTO = new DialogueDTO
             {
-                Id = randomDialogueDTO.Id,
-                Content = randomDialogueDTO.Content,
-                Movie = randomDialogueDTO.Movie.Title,
-                Year = randomDialogueDTO.Movie.Year
+                Id = randomDialogue.Id,
+                Content = randomDialogue.Content,
+                Movie = randomDialogue.Movie.Title,
+                Year = randomDialogue.Movie.Year
             };
 
-            return Ok(randomDialogueVO);
+            return Ok(randomDialogueDTO);
         }
     }
 }

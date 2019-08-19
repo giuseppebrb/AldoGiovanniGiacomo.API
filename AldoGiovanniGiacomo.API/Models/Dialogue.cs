@@ -1,24 +1,15 @@
-﻿using System.Collections.Generic;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace AldoGiovanniGiacomo.API.Models
 {
     public class Dialogue
     {
-        /// <summary>
-        /// Id of the dialogue resource
-        /// </summary>
         public int Id { get; set; }
-        /// <summary>
-        /// Text of the dialogue
-        /// </summary>
+        [Required]
         public string Content { get; set; }
-        /// <summary>
-        /// Title of the movie where the dialogue is taken from
-        /// </summary>
-        public string Movie { get; set; }
-        /// <summary>
-        /// Release year of the movie where the quote is taken from
-        /// </summary>
-        public int Year { get; set; }
+
+        [Required]
+        public int MovieId { get; set; }
+        public virtual Movie Movie { get; set; }
     }
 }

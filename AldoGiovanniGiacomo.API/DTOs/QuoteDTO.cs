@@ -1,19 +1,26 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace AldoGiovanniGiacomo.API.DTOs
+﻿namespace AldoGiovanniGiacomo.API.DTOs
 {
     public class QuoteDTO
     {
+        /// <summary>
+        /// Id of the quote resource
+        /// </summary>
         public int Id { get; set; }
-        [Required]
+        /// <summary>
+        /// Fullname of the acor that said the quote
+        /// </summary>
+        public string Actor { get; set; }
+        /// <summary>
+        /// Text of the quote
+        /// </summary>
         public string Content { get; set; }
-
-        [Required]
-        public int ActorId { get; set; }
-        public virtual ActorDTO Actor { get; set; }
-
-        [Required]
-        public int MovieId { get; set; }
-        public virtual MovieDTO Movie { get; set; }
+        /// <summary>
+        /// Title of the movie where the quote is taken from
+        /// </summary>
+        public string Movie { get; set; }
+        /// <summary>
+        /// Release year of the movie where the quote is taken from
+        /// </summary>
+        public int Year { get; set; }
     }
 }
