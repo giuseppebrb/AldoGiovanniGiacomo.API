@@ -77,6 +77,7 @@ namespace AldoGiovanniGiacomo.API_Test.Controllers
             //Assert
             Assert.NotNull(okResult);
             Assert.Equal(StatusCodes.Status200OK, okResult.StatusCode);
+            Assert.Equal(1, actor.Id);
             Assert.Equal("Aldo", actor.Name);
             Assert.Equal("Baglio", actor.Surname);
             Assert.Equal("Palermo", actor.BirthPlace);

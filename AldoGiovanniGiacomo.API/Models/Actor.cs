@@ -9,6 +9,10 @@ namespace AldoGiovanniGiacomo.API.Models
     public class Actor
     {
         /// <summary>
+        /// Id of the actor resource
+        /// </summary>
+        public int Id { get; set; }
+        /// <summary>
         /// Name of the actor
         /// </summary>
         public string Name { get; set; }

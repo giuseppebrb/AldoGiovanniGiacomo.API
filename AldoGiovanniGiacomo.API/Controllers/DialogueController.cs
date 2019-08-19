@@ -41,6 +41,7 @@ namespace AldoGiovanniGiacomo.API.Controllers
             {
                 dialogues.Add(new Dialogue
                 {
+                    Id = dialogueDTO.Id,
                     Content = dialogueDTO.Content,
                     Movie = dialogueDTO.Movie.Title,
                     Year = dialogueDTO.Movie.Year
@@ -72,6 +73,7 @@ namespace AldoGiovanniGiacomo.API.Controllers
 
             var dialogueVO = new Dialogue
             {
+                Id = dialogueDTO.Id,
                 Content = dialogueDTO.Content,
                 Movie = dialogueDTO.Movie.Title,
                 Year = dialogueDTO.Movie.Year
@@ -96,6 +98,7 @@ namespace AldoGiovanniGiacomo.API.Controllers
 
             var randomDialogueVO = new Dialogue
             {
+                Id = randomDialogueDTO.Id,
                 Content = randomDialogueDTO.Content,
                 Movie = randomDialogueDTO.Movie.Title,
                 Year = randomDialogueDTO.Movie.Year

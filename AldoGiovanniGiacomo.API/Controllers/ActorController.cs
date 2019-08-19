@@ -38,6 +38,7 @@ namespace AldoGiovanniGiacomo.API.Controllers
             foreach (var actorDTO in await _context.Actors.ToListAsync())
                 actors.Add(new Actor
                 {
+                    Id = actorDTO.Id,
                     Name = actorDTO.Name,
                     Nickname = actorDTO.Nickname,
                     Surname = actorDTO.Surname,
@@ -69,6 +70,7 @@ namespace AldoGiovanniGiacomo.API.Controllers
                 
             Actor actorVO = new Actor
             {
+                Id = actorDTO.Id,
                 Name = actorDTO.Name,
                 Nickname = actorDTO.Nickname,
                 Surname = actorDTO.Surname,
@@ -104,6 +106,7 @@ namespace AldoGiovanniGiacomo.API.Controllers
             {
                 quotesVO.Add(new Quote
                 {
+                    Id = quoteDTO.Id,
                     Content = quoteDTO.Content,
                     Movie = quoteDTO.Movie.Title,
                     Year = quoteDTO.Movie.Year
@@ -139,6 +142,7 @@ namespace AldoGiovanniGiacomo.API.Controllers
 
             var randomQuoteVO = new Quote
             {
+                Id = randomQuoteDTO.Id,
                 Content = randomQuoteDTO.Content,
                 Movie = randomQuoteDTO.Movie.Title,
                 Year = randomQuoteDTO.Movie.Year

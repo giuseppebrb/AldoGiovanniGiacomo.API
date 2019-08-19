@@ -8,6 +8,10 @@ namespace AldoGiovanniGiacomo.API.Models
     public class Movie
     {
         /// <summary>
+        /// Id of the Movie resource
+        /// </summary>
+        public int Id { get; set; }
+        /// <summary>
         /// Title of the movie
         /// </summary>
         public string Title { get; set; }

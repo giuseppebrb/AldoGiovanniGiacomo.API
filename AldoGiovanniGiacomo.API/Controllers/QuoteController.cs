@@ -40,6 +40,7 @@ namespace AldoGiovanniGiacomo.API.Controllers
             {
                 quotes.Add(new Quote
                 {
+                    Id = quoteDTO.Id,
                     Actor = quoteDTO.Actor.Name + ' ' + quoteDTO.Actor.Surname,
                     Content = quoteDTO.Content,
                     Movie = quoteDTO.Movie.Title,
@@ -72,6 +73,7 @@ namespace AldoGiovanniGiacomo.API.Controllers
 
             var quoteVO = new Quote
             {
+                Id = quoteDTO.Id,
                 Actor = quoteDTO.Actor.Name + ' ' + quoteDTO.Actor.Surname,
                 Content = quoteDTO.Content,
                 Movie = quoteDTO.Movie.Title,
@@ -97,6 +99,7 @@ namespace AldoGiovanniGiacomo.API.Controllers
 
             var randomQuoteVO = new Quote
             {
+                Id = randomQuoteDTO.Id,
                 Actor = randomQuoteDTO.Actor.Name + ' ' + randomQuoteDTO.Actor.Surname,
                 Content = randomQuoteDTO.Content,
                 Movie = randomQuoteDTO.Movie.Title,

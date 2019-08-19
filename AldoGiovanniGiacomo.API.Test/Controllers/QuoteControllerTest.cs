@@ -76,6 +76,7 @@ namespace AldoGiovanniGiacomo.API_Test.Controllers
             //Assert
             Assert.NotNull(okResult);
             Assert.Equal(StatusCodes.Status200OK, okResult.StatusCode);
+            Assert.Equal(1, quote.Id);
             Assert.Equal("Aldo Baglio", quote.Actor);
             Assert.Equal("E voi chi minchia siete?", quote.Content);
             Assert.Equal("La leggenda di Al, John e Jack", quote.Movie);

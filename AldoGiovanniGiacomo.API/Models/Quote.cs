@@ -3,6 +3,10 @@
     public class Quote
     {
         /// <summary>
+        /// Id of the quote resource
+        /// </summary>
+        public int Id { get; set; }
+        /// <summary>
         /// Fullname of the acor that said the quote
         /// </summary>
         public string Actor { get; set; }

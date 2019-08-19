@@ -45,6 +45,7 @@ namespace AldoGiovanniGiacomo.API.Controllers
 
                 movies.Add(new Movie
                 {
+                    Id = movieDTO.Id,
                     Year = movieDTO.Year,
                     Title = movieDTO.Title,
                     Quotes = movieQuotes,
@@ -79,6 +80,7 @@ namespace AldoGiovanniGiacomo.API.Controllers
             ICollection<Quote> movieQuotes = MapMovieQuotes(movieDTO);
             var movieVO = new Movie
             {
+                Id = movieDTO.Id,
                 Year = movieDTO.Year,
                 Title = movieDTO.Title,
                 Quotes = movieQuotes,
@@ -139,6 +141,7 @@ namespace AldoGiovanniGiacomo.API.Controllers
 
             var randomQuote = new Quote
             {
+                Id = randomQuoteDTO.Id,
                 Actor = randomQuoteDTO.Actor.Name + ' ' + randomQuoteDTO.Actor.Surname,
                 Content = randomQuoteDTO.Content,
                 Year = movieDTO.Year
@@ -196,6 +199,7 @@ namespace AldoGiovanniGiacomo.API.Controllers
 
             var randomQuote = new Dialogue
             {
+                Id = randomDialogueDTO.Id,
                 Content = randomDialogueDTO.Content,
                 Year = movieDTO.Year
             };
@@ -209,6 +213,7 @@ namespace AldoGiovanniGiacomo.API.Controllers
             {
                 movieQuotes.Add(new Quote
                 {
+                    Id = quoteDTO.Id,
                     Actor = quoteDTO.Actor.Name + ' ' + quoteDTO.Actor.Surname,
                     Content = quoteDTO.Content,
                     Year = movieDTO.Year
@@ -224,6 +229,7 @@ namespace AldoGiovanniGiacomo.API.Controllers
             {
                 movieDialogues.Add(new Dialogue
                 {
+                    Id = dialogueDTO.Id,
                     Content = dialogueDTO.Content,
                     Year = movieDTO.Year
                 });

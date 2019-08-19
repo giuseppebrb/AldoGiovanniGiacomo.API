@@ -5,6 +5,10 @@ namespace AldoGiovanniGiacomo.API.Models
     public class Dialogue
     {
         /// <summary>
+        /// Id of the dialogue resource
+        /// </summary>
+        public int Id { get; set; }
+        /// <summary>
         /// Text of the dialogue
         /// </summary>
         public string Content { get; set; }

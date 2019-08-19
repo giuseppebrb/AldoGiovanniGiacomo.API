@@ -76,6 +76,7 @@ namespace AldoGiovanniGiacomo.API_Test.Controllers
             //Assert
             Assert.NotNull(okResult);
             Assert.Equal(StatusCodes.Status200OK, okResult.StatusCode);
+            Assert.Equal(5, movie.Id);
             Assert.Equal(2002, movie.Year);
             Assert.Equal("La leggenda di Al, John e Jack", movie.Title);
             Assert.Equal("Aldo Baglio, Giovanni Storti, Giacomo Poretti, Massimo Venier", movie.Director);

@@ -76,6 +76,7 @@ namespace AldoGiovanniGiacomo.API_Test.Controllers
             //Assert
             Assert.NotNull(okResult);
             Assert.Equal(StatusCodes.Status200OK, okResult.StatusCode);
+            Assert.Equal(1, dialogue.Id);
             Assert.Equal("John: Che stai facendo, Jack? Che stai facendo?\nJack: Johnny... Smarties contro Anfetamine, no? [si vedono appunto degli Smarties e delle pasticche di anfetamine disposti su una scacchiera]\nJohn: E ti sembra il momento?\nJack: È sempre il momento!\nJohn [esegue alcune mosse per far concludere la partita]: Partita finita.", dialogue.Content);
             Assert.Equal("La leggenda di Al, John e Jack", dialogue.Movie);
             Assert.Equal(2002, dialogue.Year);
