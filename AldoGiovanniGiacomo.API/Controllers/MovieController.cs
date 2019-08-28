@@ -17,6 +17,7 @@ namespace AldoGiovanniGiacomo.API.Controllers
     [ApiController]
     public class MovieController : Controller
     {
+        private static readonly Random _random = new Random(Guid.NewGuid().GetHashCode());
         private readonly AldoGiovanniGiacomoAPIContext _context;
         private readonly ILogger _logger;
 
@@ -135,8 +136,7 @@ namespace AldoGiovanniGiacomo.API.Controllers
                 return NotFound();
             }
 
-            var random = new Random(Guid.NewGuid().GetHashCode());
-            var randomIndex = random.Next(1, movie.Quotes.Count);
+            var randomIndex = _random.Next(1, movie.Quotes.Count());
             Quote randomQuote = movie.Quotes.ElementAt(randomIndex);
 
             var randomQuoteDTO = new QuoteDTO

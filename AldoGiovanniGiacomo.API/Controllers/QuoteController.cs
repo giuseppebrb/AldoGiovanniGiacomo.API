@@ -16,6 +16,7 @@ namespace AldoGiovanniGiacomo.API.Controllers
     [ApiController]
     public class QuoteController : Controller
     {
+        private static readonly Random _random = new Random(Guid.NewGuid().GetHashCode());
         private readonly AldoGiovanniGiacomoAPIContext _context;
         private readonly ILogger _logger;
 
@@ -93,7 +94,7 @@ namespace AldoGiovanniGiacomo.API.Controllers
         public async Task<IActionResult> GetRandomQuote()
         {
             _logger.LogInformation("Getting a random quote @ {DATE}", DateTime.UtcNow);
-            var _random = new Random(Guid.NewGuid().GetHashCode());
+
             int randomIndex = _random.Next(1, _context.Quotes.Count());
             var randomQuote = await _context.Quotes.FindAsync(randomIndex);
 

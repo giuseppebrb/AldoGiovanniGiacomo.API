@@ -16,6 +16,7 @@ namespace AldoGiovanniGiacomo.API.Controllers
     [ApiController]
     public class ActorController : Controller
     {
+        private static readonly Random _random = new Random(Guid.NewGuid().GetHashCode());
         private readonly AldoGiovanniGiacomoAPIContext _context;
         private readonly ILogger _logger;
 
@@ -136,8 +137,7 @@ namespace AldoGiovanniGiacomo.API.Controllers
                 return NotFound();
             }
 
-            Random rnd = new Random(Guid.NewGuid().GetHashCode());
-            int randomIndex = rnd.Next(actor.Quotes.Count());
+            int randomIndex = _random.Next(actor.Quotes.Count());
             var randomQuote = actor.Quotes.ToArray()[randomIndex];
 
             var randomQuoteDTO = new QuoteDTO

@@ -1,7 +1,7 @@
 # AldoGiovanniGiacomo.API
 REST API we don't deserve but we need.
 
-[![Build Status](https://travis-ci.com/giuseppebrb/AldoGiovanniGiacomo.API.svg?token=pCEEhkoJAsRoSpQFU8q4&branch=master)](https://travis-ci.com/giuseppebrb/AldoGiovanniGiacomo.API) ![Api Version](https://img.shields.io/badge/API%20Version-v1-blue)
+[![Build Status](https://travis-ci.com/giuseppebrb/AldoGiovanniGiacomo.API.svg?token=pCEEhkoJAsRoSpQFU8q4&branch=master)](https://travis-ci.com/giuseppebrb/AldoGiovanniGiacomo.API) [![Build Status](https://dev.azure.com/giuseppebrb/AldoGiovanniGiacomo.API/_apis/build/status/aldogiovannigiacomoapi%20-%20CI?branchName=master)](https://dev.azure.com/giuseppebrb/AldoGiovanniGiacomo.API/_build/latest?definitionId=2&branchName=master) ![Api Version](https://img.shields.io/badge/API%20Version-v1-blue)
 ###### Check the live version here (Swagger page): [https://aldogiovannigiacomoapi.azurewebsites.net/swagger](https://aldogiovannigiacomoapi.azurewebsites.net/swagger/index.html)
 
 [Italian Version](#italian-version-) <img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/google/146/flag-for-italy_1f1ee-1f1f9.png" width="30" height="25">

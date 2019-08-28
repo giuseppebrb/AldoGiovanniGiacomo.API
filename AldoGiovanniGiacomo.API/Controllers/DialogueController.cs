@@ -16,6 +16,7 @@ namespace AldoGiovanniGiacomo.API.Controllers
     [ApiController]
     public class DialogueController : Controller
     {
+        private static readonly Random _random = new Random(Guid.NewGuid().GetHashCode());
         private readonly AldoGiovanniGiacomoAPIContext _context;
         private readonly ILogger _logger;
 
@@ -92,7 +93,7 @@ namespace AldoGiovanniGiacomo.API.Controllers
         public async Task<IActionResult> GetRandomDialogue()
         {
             _logger.LogInformation("Getting a random dialogue @ {DATE}", DateTime.UtcNow);
-            var _random = new Random(Guid.NewGuid().GetHashCode());
+
             int randomIndex = _random.Next(1, _context.Dialogues.Count());
             var randomDialogue = await _context.Dialogues.FindAsync(randomIndex);
 
