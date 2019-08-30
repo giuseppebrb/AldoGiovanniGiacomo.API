@@ -149,7 +149,50 @@ namespace AldoGiovanniGiacomo.API_Test.Controllers
             var controller = new ActorController(_context, _logger);
 
             // Act
-            var result = await controller.GetActorQuotes(4);
+            var result = await controller.GetRandomQuote(4);
+
+            //Assert
+            Assert.IsType<NotFoundResult>(result);
+        }
+
+        [Fact]
+        public async Task GetActorQuoteById_OkStatusCode_WithBothValidId()
+        {
+            // Arrange
+            var controller = new ActorController(_context, _logger);
+
+            // Act
+            var result = await controller.GetActorQuoteById(1, 1);
+            var okResult = result as OkObjectResult;
+            var quote = okResult.Value;
+
+            //Assert
+            Assert.NotNull(okResult);
+            Assert.Equal(StatusCodes.Status200OK, okResult.StatusCode);
+            Assert.IsType<QuoteDTO>(quote);
+        }
+
+        [Fact]
+        public async Task GetActorQuoteById_NotFoundStatusCode_WithInvalidQuoteId()
+        {
+            // Arrange
+            var controller = new ActorController(_context, _logger);
+
+            // Act
+            var result = await controller.GetActorQuoteById(1, 2);
+
+            //Assert
+            Assert.IsType<NotFoundResult>(result);
+        }
+
+        [Fact]
+        public async Task GetActorQuoteById_NotFoundStatusCode_WithInvalidActorId()
+        {
+            // Arrange
+            var controller = new ActorController(_context, _logger);
+
+            // Act
+            var result = await controller.GetActorQuoteById(4, 1);
 
             //Assert
             Assert.IsType<NotFoundResult>(result);

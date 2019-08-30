@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "feaac7bc-f21c-4889-9a22-6a80f2cec1d6",
+		"_postman_id": "919e1ddb-43c9-4037-a493-454b12ae7e96",
 		"name": "AldoGiovanniGiacomoAPI",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -349,6 +349,75 @@
 						"1",
 						"dialogues",
 						"random"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actor's Quote by Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44399/api/actors/1/quotes/1",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44399",
+					"path": [
+						"api",
+						"actors",
+						"1",
+						"quotes",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Movie Quote by Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44399/api/movies/5/quotes/42",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44399",
+					"path": [
+						"api",
+						"movies",
+						"5",
+						"quotes",
+						"42"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Movie Dialogue by Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44399/api/movies/5/dialogues/66",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44399",
+					"path": [
+						"api",
+						"movies",
+						"5",
+						"dialogues",
+						"66"
 					]
 				}
 			},

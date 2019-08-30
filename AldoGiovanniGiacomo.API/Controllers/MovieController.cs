@@ -150,6 +150,47 @@ namespace AldoGiovanniGiacomo.API.Controllers
         }
 
         /// <summary>
+        /// Get a specific quote from the specified movie
+        /// </summary>
+        /// <param name="movieId">Movie identifier</param>
+        /// <param name="quoteId">Quote identifier</param>
+        /// <returns>The quote from the movie with the specified id</returns>
+        [HttpGet("{movieId}/quotes/{quoteId}")]
+        [ProducesResponseType(typeof(QuoteDTO), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesDefaultResponseType]
+        public async Task<IActionResult> GetMovieQuoteById(int movieId, int quoteId)
+        {
+            _logger.LogInformation("Getting quote with id {QuoteID} from movie with Id: {ID} @ {DATE}", quoteId, movieId, DateTime.UtcNow);
+
+            var movie = await _context.Movies.FindAsync(movieId);
+            if (movie == null)
+            {
+                _logger.LogWarning("Not found movie with Id: {ID} @ {DATE}", movieId, DateTime.UtcNow);
+                return NotFound();
+            }
+
+            var quote = movie.Quotes.Where(q => q.Id == quoteId).SingleOrDefault();
+
+            if (quote == null)
+            {
+                _logger.LogWarning("Not found quote with Id: {ID} @ {DATE}", quoteId, DateTime.UtcNow);
+                return NotFound();
+            }
+
+            var quoteDTO = new QuoteDTO
+            {
+                Actor = quote.Actor.Name + ' ' + quote.Actor.Surname,
+                Content = quote.Content,
+                Id = quote.Id,
+                Movie = quote.Movie.Title,
+                Year = quote.Movie.Year
+            };
+
+            return Ok(quoteDTO);
+        }
+
+        /// <summary>
         /// Gets a list of dialogues taken from the specified movie
         /// </summary>
         /// <param name="id">Movie identifier</param>
@@ -204,6 +245,45 @@ namespace AldoGiovanniGiacomo.API.Controllers
                 Year = movie.Year
             };
             return Ok(randomDialogueDTO);
+        }
+
+        /// <summary>
+        /// Get a specific dialogue from the specified movie
+        /// </summary>
+        /// <param name="movieId">Movie identifier</param>
+        /// <param name="dialogueId">Dialogue identifier</param>
+        /// <returns>The dialogue from the movie with the specified id</returns>
+        [HttpGet("{movieId}/dialogues/{dialogueId}")]
+        [ProducesResponseType(typeof(DialogueDTO), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesDefaultResponseType]
+        public async Task<IActionResult> GetMovieDialogueById(int movieId, int dialogueId)
+        {
+            _logger.LogInformation("Getting dialogue with id {DialogueID} from movie with Id: {ID} @ {DATE}", dialogueId, movieId, DateTime.UtcNow);
+
+            var movie = await _context.Movies.FindAsync(movieId);
+            if (movie == null)
+            {
+                _logger.LogWarning("Not found movie with Id: {ID} @ {DATE}", movieId, DateTime.UtcNow);
+                return NotFound();
+            }
+
+            var dialogue = movie.Dialogues.Where(d => d.Id == dialogueId).SingleOrDefault();
+
+            if (dialogue == null)
+            {
+                _logger.LogWarning("Not found quote with Id: {ID} @ {DATE}", dialogueId, DateTime.UtcNow);
+                return NotFound();
+            }
+
+            var dialogueDTO = new DialogueDTO
+            {
+                Content = dialogue.Content,
+                Id = dialogue.Id,
+                Movie = dialogue.Movie.Title,
+                Year = dialogue.Movie.Year
+            };
+            return Ok(dialogueDTO);
         }
 
         private ICollection<QuoteDTO> MapMovieQuotes(Movie movieDTO)

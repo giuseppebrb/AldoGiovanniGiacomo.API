@@ -144,6 +144,19 @@ namespace AldoGiovanniGiacomo.API_Test.Controllers
         }
 
         [Fact]
+        public async Task GetMovieQuotes_NotFoundStatusCode_WithInvalidId()
+        {
+            // Arrange
+            var controller = new MovieController(_context, _logger);
+
+            // Act
+            var result = await controller.GetMovieQuotes(42);
+
+            //Assert
+            Assert.IsType<NotFoundResult>(result);
+        }
+
+        [Fact]
         public async Task GetMovieDialogues_OkStatusCode_WithValidId()
         {
             // Arrange
@@ -161,6 +174,19 @@ namespace AldoGiovanniGiacomo.API_Test.Controllers
         }
 
         [Fact]
+        public async Task GetMovieDialogues_NotFoundStatusCode_WithInvalidId()
+        {
+            // Arrange
+            var controller = new MovieController(_context, _logger);
+
+            // Act
+            var result = await controller.GetMovieDialogues(42);
+
+            //Assert
+            Assert.IsType<NotFoundResult>(result);
+        }
+
+        [Fact]
         public async Task GetMovieRandomDialogue_OkStatusCode_WithValidId()
         {
             // Arrange
@@ -175,6 +201,105 @@ namespace AldoGiovanniGiacomo.API_Test.Controllers
             Assert.NotNull(okResult);
             Assert.Equal(StatusCodes.Status200OK, okResult.StatusCode);
             Assert.IsType<DialogueDTO>(dialogue);
+        }
+
+        [Fact]
+        public async Task GetMovieRandomDialogue_NotFoundStatusCode_WithInvalidId()
+        {
+            // Arrange
+            var controller = new MovieController(_context, _logger);
+
+            // Act
+            var result = await controller.GetMovieRandomDialogue(42);
+
+            //Assert
+            Assert.IsType<NotFoundResult>(result);
+        }
+
+        [Fact]
+        public async Task GetMovieQuoteById_OkStatusCode_WithBothValidId()
+        {
+            // Arrange
+            var controller = new MovieController(_context, _logger);
+
+            // Act
+            var result = await controller.GetMovieQuoteById(5, 1);
+            var okResult = result as OkObjectResult;
+            var quote = okResult.Value;
+
+            //Assert
+            Assert.NotNull(okResult);
+            Assert.Equal(StatusCodes.Status200OK, okResult.StatusCode);
+            Assert.IsType<QuoteDTO>(quote);
+        }
+
+        [Fact]
+        public async Task GetMovieQuoteById_NotFoundStatusCode_WithInvalidQuoteId()
+        {
+            // Arrange
+            var controller = new MovieController(_context, _logger);
+
+            // Act
+            var result = await controller.GetMovieQuoteById(1, 2);
+
+            //Assert
+            Assert.IsType<NotFoundResult>(result);
+        }
+
+        [Fact]
+        public async Task GetMovieQuoteById_NotFoundStatusCode_WithInvalidMovieId()
+        {
+            // Arrange
+            var controller = new MovieController(_context, _logger);
+
+            // Act
+            var result = await controller.GetMovieQuoteById(42, 1);
+
+            //Assert
+            Assert.IsType<NotFoundResult>(result);
+        }
+
+        [Fact]
+        public async Task GetMovieDialogueById_OkStatusCode_WithBothValidId()
+        {
+            // Arrange
+            var controller = new MovieController(_context, _logger);
+
+            // Act
+            var result = await controller.GetMovieDialogueById(5, 1);
+            var okResult = result as OkObjectResult;
+            var dialogue = okResult.Value;
+
+            //Assert
+            Assert.NotNull(okResult);
+            Assert.Equal(StatusCodes.Status200OK, okResult.StatusCode);
+            Assert.IsType<DialogueDTO>(dialogue);
+        }
+
+        [Fact]
+        public async Task GetMovieDialogueById_NotFoundStatusCode_WithInvalidQuoteId()
+        {
+            // Arrange
+            var controller = new MovieController(_context, _logger);
+
+            // Act
+            var result = await controller.GetMovieDialogueById(1, 2);
+
+            //Assert
+            Assert.IsType<NotFoundResult>(result);
+        }
+
+        [Fact]
+        public async Task GetMovieDialogueById_NotFoundStatusCode_WithInvalidMovieId()
+        {
+            // Arrange
+            var controller = new MovieController(_context, _logger);
+
+            // Act
+            var result = await controller.GetMovieDialogueById(42, 1);
+
+            //Assert
+            Assert.IsType<NotFoundResult>(result);
         }
     }
 }

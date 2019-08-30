@@ -150,5 +150,44 @@ namespace AldoGiovanniGiacomo.API.Controllers
 
             return Ok(randomQuoteDTO);
         }
+
+        /// <summary>
+        /// Get a specific quote said by the specified actor
+        /// </summary>
+        /// <param name="actorId">Actor identifier</param>
+        /// <param name="quoteId">Quote identifier</param>
+        /// <returns>The quote of the actor with the specified id</returns>
+        [HttpGet("{actorId}/quotes/{quoteId}")]
+        [ProducesResponseType(typeof(QuoteDTO), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesDefaultResponseType]
+        public async Task<IActionResult> GetActorQuoteById(int actorId, int quoteId)
+        {
+            _logger.LogInformation("Getting quote with id {QuoteID} of actor with Id: {ID} @ {DATE}", quoteId, actorId, DateTime.UtcNow);
+            var actor = await _context.Actors.FindAsync(actorId);
+
+            if (actor == null)
+            {
+                _logger.LogWarning("Not found actor with Id: {ID} @ {DATE}", actorId, DateTime.UtcNow);
+                return NotFound();
+            }
+
+            var quote = actor.Quotes.Where(q => q.Id == quoteId).SingleOrDefault();
+            if (quote == null)
+            {
+                _logger.LogWarning("Not found quote with Id: {ID} @ {DATE}", quoteId, DateTime.UtcNow);
+                return NotFound();
+            }
+
+            var quoteDTO = new QuoteDTO
+            {
+                Actor = actor.Name + ' ' + actor.Surname,
+                Content = quote.Content,
+                Id = quote.Id,
+                Movie = quote.Movie.Title,
+                Year = quote.Movie.Year
+            };
+            return Ok(quoteDTO);
+        }
     }
 }

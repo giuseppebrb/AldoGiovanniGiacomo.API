@@ -3,6 +3,7 @@ REST API we don't deserve but we need.
 
 [![Build Status](https://travis-ci.com/giuseppebrb/AldoGiovanniGiacomo.API.svg?token=pCEEhkoJAsRoSpQFU8q4&branch=master)](https://travis-ci.com/giuseppebrb/AldoGiovanniGiacomo.API) [![Build Status](https://dev.azure.com/giuseppebrb/AldoGiovanniGiacomo.API/_apis/build/status/aldogiovannigiacomoapi%20-%20CI?branchName=master)](https://dev.azure.com/giuseppebrb/AldoGiovanniGiacomo.API/_build/latest?definitionId=2&branchName=master) ![Api Version](https://img.shields.io/badge/API%20Version-v1-blue)
 ###### Check the live version here (Swagger page): [https://aldogiovannigiacomoapi.azurewebsites.net/swagger](https://aldogiovannigiacomoapi.azurewebsites.net/swagger/index.html)
+###### Endpoints list [here](#endpoints-list).
 
 [Italian Version](#italian-version-) <img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/google/146/flag-for-italy_1f1ee-1f1f9.png" width="30" height="25">
 
@@ -16,7 +17,6 @@ This API is an **ASP.NET CORE 2.2** Web Application solution.
 Packages/Technologies involved are:
 - [Entity Framework Core](https://docs.microsoft.com/en-us/ef/core/)
 - [NSwag](https://github.com/RicoSuter/NSwag) (to generate Swagger UI and OpenAPI docs)
-- etc...
 
 CI/CD (Continuous Integration/Continuous Delivery) are provided by Travis-CI; you can find build history [here](https://travis-ci.com/giuseppebrb/AldoGiovanniGiacomo.API/builds)
 The live version is hosted on Microsoft Azure @ [https://aldogiovannigiacomoapi.azurewebsites.net/swagger](https://aldogiovannigiacomoapi.azurewebsites.net/swagger/index.html).
@@ -51,7 +51,6 @@ Queste API sono create in una soluzione **ASP.NET CORE 2.2** Web Application.
 Altre tecnologie/pacchetti coinvolti durante la creazione sono:
 - [Entity Framework Core](https://docs.microsoft.com/en-us/ef/core/)
 - [NSwag](https://github.com/RicoSuter/NSwag) (per generare la documentazione OpenAPI e l'interfaccia grafica di Swagger)
-- ecc...
 
 CI/CD (Continuous Integration/Continuous Delivery) sono forniti da Travis-CI; potete trovare la *build history* [qui](https://travis-ci.com/giuseppebrb/AldoGiovanniGiacomo.API/builds)
 La *live version* è hostata su Microsoft Azure @ [https://aldogiovannigiacomoapi.azurewebsites.net/swagger](https://aldogiovannigiacomoapi.azurewebsites.net/swagger/index.html).
@@ -74,3 +73,26 @@ Forse creare chatbot/estensioni per client come Slack, Skype, ecc...
 
 ##### Qualsiasi Fork/Pull Request/Suggerimento/Commento/Aiuto è più che benvenuto! :smiley:
 ##### Se volete aggiungere citazioni al seed iniziale del database, potete farlo dal DBContext nella folder *Contexts*
+
+### Endpoints list
+|                                       Endpoint examples                                      |                               Description                               |
+|----------------------------------------------------------------------------------------------|-------------------------------------------------------------------------|
+| https://aldogiovannigiacomoapi.azurewebsites.net/api/actors                                  | Retrieve anagraphic infos about the actors Aldo, Giovanni e Giacomo     |
+| https://aldogiovannigiacomoapi.azurewebsites.net/api/actors/{id}                             | Retrieve anagraphic details about an actor                              |
+| https://aldogiovannigiacomoapi.azurewebsites.net/api/actors/{id}/quotes                      | Gets every quote, taken from every movie, said by the specified actor   |
+| https://aldogiovannigiacomoapi.azurewebsites.net/api/actors/{id}/quotes/random               | Get a random quote, from a random movie, said by the specified actor    |
+| https://aldogiovannigiacomoapi.azurewebsites.net/api/actors/{actorId}/quotes/{quoteId}       | Get a specific quote said by the specified actor                        |
+| https://aldogiovannigiacomoapi.azurewebsites.net/api/dialogues                               | Gets every dialogue, from every movie, said by Aldo, Giovanni e Giacomo |
+| https://aldogiovannigiacomoapi.azurewebsites.net/api/dialogues/{id}                          | Gets a specific dialogue                                                |
+| https://aldogiovannigiacomoapi.azurewebsites.net/api/dialogues/random                        | Gets a random dialogue from a random movie                              |
+| https://aldogiovannigiacomoapi.azurewebsites.net/api/movies                                  | Gets the movie list of Aldo, Giovanni e Giacomo with details            |
+| https://aldogiovannigiacomoapi.azurewebsites.net/api/movies/{id}                             | Gets details of the specified movie                                     |
+| https://aldogiovannigiacomoapi.azurewebsites.net/api/movies/{id}/quotes                      | Gets a list of quotes taken from the specified movie                    |
+| https://aldogiovannigiacomoapi.azurewebsites.net/api/movies/{id}/quotes/random               | Get a random quote taken from the specified movie                       |
+| https://aldogiovannigiacomoapi.azurewebsites.net/api/movies/{movieId}/quotes/{quoteId}       | Get a specific quote from the specified movie                           |
+| https://aldogiovannigiacomoapi.azurewebsites.net/api/movies/{id}/dialogues                   | Gets a list of dialogues taken from the specified movie                 |
+| https://aldogiovannigiacomoapi.azurewebsites.net/api/movies/{id}/dialogues/random            | Get a random dialogue taken from the specified movie                    |
+| https://aldogiovannigiacomoapi.azurewebsites.net/api/movies/{movieId}/dialogues/{dialogueId} | Get a specific quote from the specified movie                           |
+| https://aldogiovannigiacomoapi.azurewebsites.net/api/quotes                                  | Gets every quote, from every movie, said by Aldo, Giovanni e Giacomo    |
+| https://aldogiovannigiacomoapi.azurewebsites.net/api/quotes/{id}                             | Gets specified quote                                                    |
+| https://aldogiovannigiacomoapi.azurewebsites.net/api/quotes/random                           | Gets a random quote from a random movie                                 |
