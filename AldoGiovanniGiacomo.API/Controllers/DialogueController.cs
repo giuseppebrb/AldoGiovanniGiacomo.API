@@ -43,7 +43,7 @@ namespace AldoGiovanniGiacomo.API.Controllers
                 dialoguesDTO.Add(new DialogueDTO
                 {
                     Id = dialogue.Id,
-                    Content = SanitizeDialogueContent(dialogue.Content),
+                    Content = dialogue.Content.Replace("\r\n    ", "\n"),
                     Movie = dialogue.Movie.Title,
                     Year = dialogue.Movie.Year
                 });
@@ -75,7 +75,7 @@ namespace AldoGiovanniGiacomo.API.Controllers
             var dialogueDTO = new DialogueDTO
             {
                 Id = dialogue.Id,
-                Content = SanitizeDialogueContent(dialogue.Content),
+                Content = dialogue.Content.Replace("\r\n    ", "\n"),
                 Movie = dialogue.Movie.Title,
                 Year = dialogue.Movie.Year
             };
@@ -100,17 +100,12 @@ namespace AldoGiovanniGiacomo.API.Controllers
             var randomDialogueDTO = new DialogueDTO
             {
                 Id = randomDialogue.Id,
-                Content = SanitizeDialogueContent(randomDialogue.Content),
+                Content = randomDialogue.Content.Replace("\r\n    ", "\n"),
                 Movie = randomDialogue.Movie.Title,
                 Year = randomDialogue.Movie.Year
             };
 
             return Ok(randomDialogueDTO);
-        }
-
-        private string SanitizeDialogueContent(string dialogueContent)
-        {
-            return dialogueContent.Replace("\r\n", "\n");
         }
     }
 }
