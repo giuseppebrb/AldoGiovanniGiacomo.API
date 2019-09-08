@@ -33,7 +33,10 @@ namespace AldoGiovanniGiacomo.API
         {
             services.AddMvc()
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
-                .AddJsonOptions(opt => opt.SerializerSettings.NullValueHandling = NullValueHandling.Ignore);
+                .AddJsonOptions(opt => {
+                    opt.SerializerSettings.NullValueHandling = NullValueHandling.Ignore;
+                    opt.SerializerSettings.Formatting = Formatting.Indented;
+                });
 
             services.AddDbContext<AldoGiovanniGiacomoAPIContext>(o => o.UseLazyLoadingProxies().UseSqlServer(_connectionString));
             services.AddSwaggerDocument(config =>
