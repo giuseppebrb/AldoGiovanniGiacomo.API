@@ -10,6 +10,11 @@ REST API we don't deserve but we need.
 
 ## English Version <img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/google/146/flag-for-united-kingdom_1f1ec-1f1e7.png" width="30" height="25">
 
+### News
+I created a Slack Application (coded in Node.js) that uses these APIs. You can take a look at the repository here: [AldoGiovanniGiacomoSlackApp](https://github.com/giuseppebrb/AldoGiovanniGiacomoSlackApp).
+<br />
+<a href="https://slack.com/oauth/authorize?client_id=744917847047.745107739717&scope=commands,bot,chat:write:bot"><img src="https://www.eletype.com/wp-content/uploads/Add-to-Slack-Button@2x.png" height="48"></a>
+
 ### What Is This?
 This is a simple **REST API** whose purpose is to provide quotes and infos about *Aldo, Giovanni e Giacomo* (a popular comic trio in Italy).
 
@@ -43,6 +48,11 @@ Maybe create bots/extensions for client like Slack, Skype, etc...
 ---------------------------------------
 
 ## Italian Version <img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/google/146/flag-for-italy_1f1ee-1f1f9.png" width="30" height="25">
+
+### News
+Ho creato una applicazione Node.js per Slack che usa queste API. Potete dare un'occhiata al repository qui: [AldoGiovanniGiacomoSlackApp](https://github.com/giuseppebrb/AldoGiovanniGiacomoSlackApp).
+<br />
+<a href="https://slack.com/oauth/authorize?client_id=744917847047.745107739717&scope=commands,bot,chat:write:bot"><img src="https://www.eletype.com/wp-content/uploads/Add-to-Slack-Button@2x.png" height="48"></a>
 
 ### Che cos'è?
 Semplici **REST API** con lo scopo di fornire citazioni ed informazioni su Aldo, Giovanni e Giacomo.
