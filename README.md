@@ -13,7 +13,7 @@ REST API we don't deserve but we need.
 ### News
 I created a Slack Application (coded in Node.js) that uses these APIs. You can take a look at the repository here: [AldoGiovanniGiacomoSlackApp](https://github.com/giuseppebrb/AldoGiovanniGiacomoSlackApp).
 <br />
-<a href="https://slack.com/oauth/authorize?client_id=744917847047.745107739717&scope=commands,bot,chat:write:bot"><img src="https://www.eletype.com/wp-content/uploads/Add-to-Slack-Button@2x.png" height="48"></a>
+<a href="https://slack.com/oauth/authorize?client_id=744917847047.745107739717&scope=commands"><img src="https://www.eletype.com/wp-content/uploads/Add-to-Slack-Button@2x.png" height="48"></a>
 
 ### What Is This?
 This is a simple **REST API** whose purpose is to provide quotes and infos about *Aldo, Giovanni e Giacomo* (a popular comic trio in Italy).
@@ -52,7 +52,7 @@ Maybe create bots/extensions for client like Slack, Skype, etc...
 ### News
 Ho creato una applicazione Node.js per Slack che usa queste API. Potete dare un'occhiata al repository qui: [AldoGiovanniGiacomoSlackApp](https://github.com/giuseppebrb/AldoGiovanniGiacomoSlackApp).
 <br />
-<a href="https://slack.com/oauth/authorize?client_id=744917847047.745107739717&scope=commands,bot,chat:write:bot"><img src="https://www.eletype.com/wp-content/uploads/Add-to-Slack-Button@2x.png" height="48"></a>
+<a href="https://slack.com/oauth/authorize?client_id=744917847047.745107739717&scope=commands"><img src="https://www.eletype.com/wp-content/uploads/Add-to-Slack-Button@2x.png" height="48"></a>
 
 ### Che cos'è?
 Semplici **REST API** con lo scopo di fornire citazioni ed informazioni su Aldo, Giovanni e Giacomo.
