@@ -19,7 +19,7 @@ I created a Slack Application (coded in Node.js) that uses these APIs. You can t
 This is a simple **REST API** whose purpose is to provide quotes and infos about *Aldo, Giovanni e Giacomo* (a popular comic trio in Italy).
 
 ### How It's Made? ©
-This API is an **ASP.NET CORE 2.2** Web Application solution.
+This API is an **ASP.NET CORE 3.1** Web Application solution.
 Packages/Technologies involved are:
 - [Entity Framework Core](https://docs.microsoft.com/en-us/ef/core/)
 - [NSwag](https://github.com/RicoSuter/NSwag) (to generate Swagger UI and OpenAPI docs)
@@ -58,7 +58,7 @@ Ho creato una applicazione Node.js per Slack che usa queste API. Potete dare un'
 Semplici **REST API** con lo scopo di fornire citazioni ed informazioni su Aldo, Giovanni e Giacomo.
 
 ### Com'è fatto?
-Queste API sono create in una soluzione **ASP.NET CORE 2.2** Web Application.
+Queste API sono create in una soluzione **ASP.NET CORE 3.1** Web Application.
 Altre tecnologie/pacchetti coinvolti durante la creazione sono:
 - [Entity Framework Core](https://docs.microsoft.com/en-us/ef/core/)
 - [NSwag](https://github.com/RicoSuter/NSwag) (per generare la documentazione OpenAPI e l'interfaccia grafica di Swagger)
