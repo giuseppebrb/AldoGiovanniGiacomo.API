@@ -31,11 +31,11 @@ namespace AldoGiovanniGiacomo.API
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc()
-                .SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
+            services.AddMvc(option => option.EnableEndpointRouting = false)
+                .SetCompatibilityVersion(CompatibilityVersion.Version_3_0)
                 .AddJsonOptions(opt => {
-                    opt.SerializerSettings.NullValueHandling = NullValueHandling.Ignore;
-                    opt.SerializerSettings.Formatting = Formatting.Indented;
+                    opt.JsonSerializerOptions.IgnoreNullValues = true;
+                    opt.JsonSerializerOptions.WriteIndented = true;
                 });
 
             services.AddDbContext<AldoGiovanniGiacomoAPIContext>(o => o.UseLazyLoadingProxies().UseSqlServer(_connectionString));
@@ -71,6 +71,7 @@ namespace AldoGiovanniGiacomo.API
 
             app.UseHttpsRedirection();
             app.UseMvc();
+
             app.UseOpenApi();
             app.UseSwaggerUi3();
 
