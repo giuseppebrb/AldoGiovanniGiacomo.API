@@ -189,5 +189,44 @@ namespace AldoGiovanniGiacomo.API.Controllers
             };
             return Ok(quoteDTO);
         }
+
+        /// <summary>
+        /// Add a new actor inside the list of actors
+        /// </summary>
+        /// <param name="name">Name of the actor</param>
+        /// <param name="surname">Surname</param>
+        /// <param name="birth">Date of birth of the actor</param>
+        /// <param name="birthPlace">Birthplace of the actor</param>
+        /// <returns></returns>
+        [HttpPost("add")]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesDefaultResponseType]
+        public async Task<ActionResult<QuoteDTO>> PostActor(string name, string surname, DateTime birth, string birthPlace)
+        {
+            if (!IsValidStringInput(name) || !IsValidStringInput(surname)
+                || !IsValidStringInput(birthPlace) || birth == null)
+            {
+                return BadRequest();
+            }
+            var actors = _context.Actors;
+            actors.Add(new Models.Actor
+            {
+                Name = name,
+                Surname = surname,
+                Birth = birth,
+                BirthPlace = birthPlace
+            });
+            await _context.SaveChangesAsync();
+
+            var addedActor = _context.Actors.FirstOrDefaultAsync(a => a.Name == name && a.Surname == surname).Result;
+
+            return CreatedAtAction(nameof(GetActor), new { id = addedActor.Id }, addedActor);
+        }
+
+        private bool IsValidStringInput(string input)
+        {
+            return !string.IsNullOrEmpty(input) && !string.IsNullOrWhiteSpace(input);
+        }
     }
 }

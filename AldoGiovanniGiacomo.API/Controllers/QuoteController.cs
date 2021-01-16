@@ -123,7 +123,7 @@ namespace AldoGiovanniGiacomo.API.Controllers
         [ProducesDefaultResponseType]
         public async Task<ActionResult<QuoteDTO>> PostQuote(int actorId, int movieId, string quote)
         {
-            if (actorId <= 0 || movieId <= 0 || quote == null || quote == string.Empty)
+            if (actorId <= 0 || movieId <= 0 || string.IsNullOrEmpty(quote) || string.IsNullOrWhiteSpace(quote))
             {
                 return BadRequest();
             }
