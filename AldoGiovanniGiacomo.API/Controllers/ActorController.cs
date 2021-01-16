@@ -197,12 +197,12 @@ namespace AldoGiovanniGiacomo.API.Controllers
         /// <param name="surname">Surname</param>
         /// <param name="birth">Date of birth of the actor</param>
         /// <param name="birthPlace">Birthplace of the actor</param>
-        /// <returns></returns>
+        /// <returns>The added actor</returns>
         [HttpPost("add")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesDefaultResponseType]
-        public async Task<ActionResult<QuoteDTO>> PostActor(string name, string surname, DateTime birth, string birthPlace)
+        public async Task<ActionResult> PostActor(string name, string surname, DateTime birth, string birthPlace)
         {
             if (!IsValidStringInput(name) || !IsValidStringInput(surname)
                 || !IsValidStringInput(birthPlace) || birth == null)

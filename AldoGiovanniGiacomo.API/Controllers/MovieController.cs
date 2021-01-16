@@ -316,5 +316,37 @@ namespace AldoGiovanniGiacomo.API.Controllers
             }
             return movieDialogues;
         }
+
+        /// <summary>
+        /// Add a new movie to the list of movies
+        /// </summary>
+        /// <param name="title">Title of the movie</param>
+        /// <param name="year">Year of release</param>
+        /// <param name="director">The director's fullname of the movie</param>
+        /// <returns>The movie added</returns>
+        [HttpPost("add")]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesDefaultResponseType]
+        public async Task<ActionResult> PostMovie(string title, int year, string director)
+        {
+            if (year <= 0 || string.IsNullOrEmpty(title) || string.IsNullOrWhiteSpace(title) ||
+                string.IsNullOrEmpty(director) || string.IsNullOrWhiteSpace(director))
+            {
+                return BadRequest();
+            }
+            var movies = _context.Movies;
+            movies.Add(new Models.Movie
+            {
+                Director = director,
+                Title = title,
+                Year = year
+            });
+            await _context.SaveChangesAsync();
+
+            var addedMovie = _context.Movies.FirstOrDefaultAsync(m => m.Title == title).Result;
+
+            return CreatedAtAction(nameof(GetMovie), new { id = addedMovie.Id }, addedMovie);
+        }
     }
 }

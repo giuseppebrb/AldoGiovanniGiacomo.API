@@ -121,7 +121,7 @@ namespace AldoGiovanniGiacomo.API.Controllers
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesDefaultResponseType]
-        public async Task<ActionResult<QuoteDTO>> PostQuote(int actorId, int movieId, string quote)
+        public async Task<ActionResult> PostQuote(int actorId, int movieId, string quote)
         {
             if (actorId <= 0 || movieId <= 0 || string.IsNullOrEmpty(quote) || string.IsNullOrWhiteSpace(quote))
             {
