@@ -109,5 +109,35 @@ namespace AldoGiovanniGiacomo.API.Controllers
 
             return Ok(randomQuoteDTO);
         }
+
+        /// <summary>
+        /// Add a new quote inside the list of quotes
+        /// </summary>
+        /// <param name="actorId">Id of the actor who said the quote</param>
+        /// <param name="movieId">Id of the movie where the quote has been said</param>
+        /// <param name="quote">Content of the quote</param>
+        /// <returns>The quote added</returns>
+        [HttpPost("add")]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesDefaultResponseType]
+        public async Task<ActionResult<QuoteDTO>> PostQuote(int actorId, int movieId, string quote)
+        {
+            if (actorId <= 0 || movieId <= 0 || quote == null || quote == string.Empty)
+            {
+                return BadRequest();
+            }
+            var quotes = _context.Quotes;
+            quotes.Add(new Models.Quote {
+                ActorId = actorId,
+                MovieId = movieId,
+                Content = quote
+            });
+            await _context.SaveChangesAsync();
+
+            var addedQuote = _context.Quotes.FirstOrDefaultAsync(q => q.Content == quote).Result;
+
+            return CreatedAtAction(nameof(GetQuote), new { id = addedQuote.Id }, addedQuote);
+        }
     }
 }
