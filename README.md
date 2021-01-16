@@ -91,10 +91,10 @@ Forse creare chatbot/estensioni per client come Slack, Skype, ecc...
 | https://aldogiovannigiacomoapi.azurewebsites.net/api/actors                                  | Retrieve anagraphic infos about the actors Aldo, Giovanni e Giacomo     |
 | https://aldogiovannigiacomoapi.azurewebsites.net/api/actors/{id}                             | Retrieve anagraphic details about an actor                              |
 | https://aldogiovannigiacomoapi.azurewebsites.net/api/actors/add                              | Add a new actor inside the list of actors                               |
-|                                                                                              |                                                                         | 
 | https://aldogiovannigiacomoapi.azurewebsites.net/api/actors/{id}/quotes                      | Gets every quote, taken from every movie, said by the specified actor   |
 | https://aldogiovannigiacomoapi.azurewebsites.net/api/actors/{id}/quotes/random               | Get a random quote, from a random movie, said by the specified actor    |
 | https://aldogiovannigiacomoapi.azurewebsites.net/api/actors/{actorId}/quotes/{quoteId}       | Get a specific quote said by the specified actor                        |
+|                                                                                              |                                                                         | 
 | https://aldogiovannigiacomoapi.azurewebsites.net/api/dialogues                               | Gets every dialogue, from every movie, said by Aldo, Giovanni e Giacomo |
 | https://aldogiovannigiacomoapi.azurewebsites.net/api/dialogues/add                           | Add a new dialogue to the list of dialogues                             |
 | https://aldogiovannigiacomoapi.azurewebsites.net/api/dialogues/{id}                          | Gets a specific dialogue                                                |
