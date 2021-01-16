@@ -34,6 +34,8 @@ namespace AldoGiovanniGiacomo.API
             services.AddCors(options => {
                 options.AddDefaultPolicy(builder => {
                     builder.AllowAnyOrigin();
+                    builder.AllowAnyMethod();
+                    builder.AllowAnyHeader();
                 });
             });
             services.AddMvc(option => option.EnableEndpointRouting = false)
