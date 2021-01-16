@@ -31,6 +31,11 @@ namespace AldoGiovanniGiacomo.API
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(options => {
+                options.AddDefaultPolicy(builder => {
+                    builder.AllowAnyOrigin();
+                });
+            });
             services.AddMvc(option => option.EnableEndpointRouting = false)
                 .SetCompatibilityVersion(CompatibilityVersion.Version_3_0)
                 .AddJsonOptions(opt => {
@@ -71,6 +76,7 @@ namespace AldoGiovanniGiacomo.API
 
             app.UseHttpsRedirection();
             app.UseMvc();
+            app.UseCors();
 
             app.UseOpenApi();
             app.UseSwaggerUi3();
