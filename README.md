@@ -97,9 +97,13 @@ Forse creare chatbot/estensioni per client come Slack, Skype, ecc...
 | https://aldogiovannigiacomoapi.azurewebsites.net/api/actors/{id}/quotes/random               | Get a random quote, from a random movie, said by the specified actor    |
 | https://aldogiovannigiacomoapi.azurewebsites.net/api/actors/{actorId}/quotes/{quoteId}       | Get a specific quote said by the specified actor                        |
 | https://aldogiovannigiacomoapi.azurewebsites.net/api/dialogues                               | Gets every dialogue, from every movie, said by Aldo, Giovanni e Giacomo |
+| https://aldogiovannigiacomoapi.azurewebsites.net/api/dialogues/add                           | Add a new dialogue to the list of dialogues
+|
 | https://aldogiovannigiacomoapi.azurewebsites.net/api/dialogues/{id}                          | Gets a specific dialogue                                                |
 | https://aldogiovannigiacomoapi.azurewebsites.net/api/dialogues/random                        | Gets a random dialogue from a random movie                              |
 | https://aldogiovannigiacomoapi.azurewebsites.net/api/movies                                  | Gets the movie list of Aldo, Giovanni e Giacomo with details            |
+| https://aldogiovannigiacomoapi.azurewebsites.net/api/movies/add                              | Add a new movie to the list of movies
+|
 | https://aldogiovannigiacomoapi.azurewebsites.net/api/movies/{id}                             | Gets details of the specified movie                                     |
 | https://aldogiovannigiacomoapi.azurewebsites.net/api/movies/{id}/quotes                      | Gets a list of quotes taken from the specified movie                    |
 | https://aldogiovannigiacomoapi.azurewebsites.net/api/movies/{id}/quotes/random               | Get a random quote taken from the specified movie                       |

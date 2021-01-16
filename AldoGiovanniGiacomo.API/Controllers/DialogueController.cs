@@ -107,5 +107,34 @@ namespace AldoGiovanniGiacomo.API.Controllers
 
             return Ok(randomDialogueDTO);
         }
+
+        /// <summary>
+        /// Add a new dialogue to the list of dialogues
+        /// </summary>
+        /// <param name="movieId">Id of the movie where the dialouge took place</param>
+        /// <param name="dialogue">Content of the dialogue</param>
+        /// <returns>The new dialogue added</returns>
+        [HttpPost("add")]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesDefaultResponseType]
+        public async Task<ActionResult> PostDialogue(int movieId, string dialogue)
+        {
+            if (movieId <= 0 || string.IsNullOrEmpty(dialogue) || string.IsNullOrWhiteSpace(dialogue))
+            {
+                return BadRequest();
+            }
+            var dialogues = _context.Dialogues;
+            dialogues.Add(new Models.Dialogue
+            {
+                Content = dialogue,
+                MovieId = movieId
+            });
+            await _context.SaveChangesAsync();
+
+            var addedDialogue = _context.Dialogues.FirstOrDefaultAsync(d => d.Content == dialogue).Result;
+
+            return CreatedAtAction(nameof(GetDialogue), new { id = addedDialogue.Id }, addedDialogue);
+        }
     }
 }
