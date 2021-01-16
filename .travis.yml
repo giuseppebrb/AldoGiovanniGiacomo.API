@@ -1,7 +1,7 @@
 language: csharp
 mono: none
 dist: bionic
-dotnet: 3.1
+dotnet: 5.0
 solution: AldoGiovanniGiacomo.API.sln
 install:
 - dotnet restore
