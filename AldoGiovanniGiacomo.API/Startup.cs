@@ -31,14 +31,15 @@ namespace AldoGiovanniGiacomo.API
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddCors(setup =>
-                setup.AddPolicy("AllowAll", builder =>
-                    builder.AllowAnyOrigin()
-                    .AllowAnyHeader()
+            services.AddCors(options => {
+                options.AddDefaultPolicy(builder => {
+                    builder
                     .AllowAnyMethod()
                     .AllowCredentials()
-                )
-            );
+                    .SetIsOriginAllowed((host) => true)
+                    .AllowAnyHeader();
+                });
+            });
             services.AddMvc(option => option.EnableEndpointRouting = false)
                 .SetCompatibilityVersion(CompatibilityVersion.Version_3_0)
                 .AddJsonOptions(opt => {
@@ -79,7 +80,7 @@ namespace AldoGiovanniGiacomo.API
 
             app.UseHttpsRedirection();
             app.UseMvc();
-            app.UseCors("AllowAll");
+            app.UseCors();
 
             app.UseOpenApi();
             app.UseSwaggerUi3();
