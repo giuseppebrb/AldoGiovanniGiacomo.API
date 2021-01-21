@@ -11,7 +11,7 @@ REST API we don't deserve but we need.
 ## English Version <img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/google/146/flag-for-united-kingdom_1f1ec-1f1e7.png" width="30" height="25">
 
 ### News
-I created a Slack Application (coded in Node.js) that uses these APIs. You can take a look at the repository here: [AldoGiovanniGiacomoSlackApp](https://github.com/giuseppebrb/AldoGiovanniGiacomoSlackApp).
+I've built a Slack Application (coded in Node.js) that uses these APIs. You can take a look at the repository here: [AldoGiovanniGiacomoSlackApp](https://github.com/giuseppebrb/AldoGiovanniGiacomoSlackApp).
 <br />
 <a href="https://slack.com/oauth/authorize?client_id=744917847047.745107739717&scope=commands"><img src="https://www.eletype.com/wp-content/uploads/Add-to-Slack-Button@2x.png" height="48"></a>
 
